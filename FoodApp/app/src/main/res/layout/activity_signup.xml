@@ -14,6 +14,7 @@
         android:text="EMAIL"
         android:textSize="30dp"
         android:textColor="@color/black"
+        android:layout_marginTop="220dp"
         />
 
     <EditText
@@ -40,15 +41,30 @@
         android:hint="Password"
         android:textColor="@color/black"
         android:inputType="numberPassword" />
-        <!-- BUTTON signup -->
-        <Button
-            android:id="@+id/btn_signup"
-            android:text="SIGN UP"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:backgroundTint="#7D0A0A"
-            />
+    <!--RE PASSWORD-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RE-PASSWORD"
+        android:textSize="30dp"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/repassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Re-Password"
+        android:textColor="@color/black"
+        android:inputType="numberPassword" />
+    <!-- BUTTON signup -->
+    <Button
+        android:id="@+id/btn_signup"
+        android:text="SIGN UP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#7D0A0A"
+        />
 
 
 

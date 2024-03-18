@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#F3EDC8"
-    android:layout_gravity="center_horizontal">
+    android:layout_gravity="center_horizontal"
+    >
 
     <!-- EMAIL -->
     <TextView
@@ -13,7 +14,8 @@
         android:layout_height="wrap_content"
         android:text="EMAIL"
         android:textSize="30dp"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:layout_marginTop="200dp"/>
 
     <EditText
         android:id="@+id/email"
@@ -39,18 +41,18 @@
         android:textColor="@color/black"
         android:inputType="numberPassword" />
 
-<!-- BUTTON forgotpassword -->
-        <Button
-            android:id="@+id/btn_forgotpass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="FORGOT PASS"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:backgroundTint="#7D0A0A"
-            android:layout_marginLeft="10dp"
-            />
-<!-- Button Layout -->
+    <!-- BUTTON forgotpassword -->
+    <Button
+        android:id="@+id/btn_forgotpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FORGOT PASS"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:backgroundTint="#7D0A0A"
+        android:layout_marginLeft="10dp"
+        />
+    <!-- Button Layout -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
