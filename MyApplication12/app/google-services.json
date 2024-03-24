@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "24953679845",
+    "project_id": "checkcrud-b04ad",
+    "storage_bucket": "checkcrud-b04ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24953679845:android:184a77c5bdb310aa05090c",
+        "android_client_info": {
+          "package_name": "com.example.login_register_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANMbltP_yoZMgF13WQ7A5QlrmBb0iTPCw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24953679845:android:8974014a66bf269005090c",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANMbltP_yoZMgF13WQ7A5QlrmBb0iTPCw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
