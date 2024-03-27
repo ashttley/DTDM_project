@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/hello"
-            android:text="Forgot Password"
+            android:text="Quên mật khẩu"
             android:textColor="@color/white"
             android:textSize="25dp"
             android:textStyle="bold"
@@ -46,18 +46,18 @@
 
 
         <FrameLayout
-            android:layout_width="350dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="340dp"
-            android:layout_marginLeft="30dp"
+            android:layout_gravity="center_horizontal"
             >
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enter your OTP"
+                android:text="Nhập mã OTP"
                 android:layout_marginLeft="30dp"
                 android:textColor="@color/white"
-                android:textSize="25dp"
+                android:textSize="20dp"
 
                 />
             <EditText
@@ -68,7 +68,7 @@
                 android:text=""
                 android:layout_marginLeft="30dp"
                 android:textColor="@color/white"
-                android:textSize="25dp"
+                android:textSize="17dp"
 
                 />
         </FrameLayout>
@@ -77,26 +77,26 @@
 
         <Button
             android:id="@+id/btn_Next"
-            android:layout_width="400dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="580dp"
             android:padding="10dp"
-            android:text="Next"
+            android:text="Tiếp tục"
             android:textAllCaps="false"
-            android:textSize="25dp"
-            android:backgroundTint="@color/camNen"/>
+            android:textSize="20dp"
+            android:backgroundTint="@color/camdonau"/>
         <Button
             android:id="@+id/btn_Back"
-            android:layout_width="400dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="650dp"
             android:padding="10dp"
-            android:text="Back"
+            android:text="Quay lại"
             android:textAllCaps="false"
-            android:textSize="25dp"
-            android:backgroundTint="@color/nauCam"/>
+            android:textSize="20dp"
+            android:backgroundTint="@color/da"/>
 
     </FrameLayout>
 

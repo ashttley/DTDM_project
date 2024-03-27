@@ -31,23 +31,72 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/hello"
-            android:text="Sign Up"
+            android:text="Đăng ký"
             android:textColor="@color/white"
             android:textSize="25dp"
             android:textStyle="bold"
             android:textAlignment="center"
             android:layout_marginTop="200dp"/>
-<!--USERNAME-->
+<!--Username-->
         <FrameLayout
-            android:layout_width="350dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="300dp"
-            android:layout_marginLeft="30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="250dp"
+            >
 
+            <ImageView
+                android:id="@+id/icon_user"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/icon_user"
+                android:layout_toLeftOf="@+id/txtUsername"
+                android:layout_marginTop="25dp"/>
+
+            <EditText
+                android:id="@+id/txtUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                />
+        </FrameLayout>
+<!--Phone-->
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="305dp"
+            >
+
+            <ImageView
+                android:id="@+id/icon_phone"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/icon_phone"
+                android:layout_toLeftOf="@+id/txtPhone"
+                android:layout_marginTop="25dp"/>
+
+            <EditText
+                android:id="@+id/txtPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                />
+        </FrameLayout>
+<!--Email-->
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="355dp"
             >
 
         <ImageView
-            android:id="@+id/icon_user"
+            android:id="@+id/icon_email"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/icon_email"
@@ -58,10 +107,9 @@
             android:id="@+id/txtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
             android:layout_marginLeft="30dp"
             android:textColor="@color/white"
-            android:textSize="25dp"
+            android:textSize="17dp"
             />
         </FrameLayout>
 
@@ -69,10 +117,10 @@
 <!--PASSWORD-->
 
         <FrameLayout
-            android:layout_width="350dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="365dp"
-            android:layout_marginLeft="30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="400dp"
             >
 
             <ImageView
@@ -87,21 +135,21 @@
                 android:id="@+id/txtPass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:layout_marginLeft="30dp"
                 android:textColor="@color/white"
-                android:textSize="25dp"
+                android:textSize="17dp"
                 />
+
         </FrameLayout>
 
 
 
         <!--RE PASSWORD-->
         <FrameLayout
-            android:layout_width="350dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="430dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginTop="450dp"
+            android:layout_gravity="center_horizontal"
             >
 
             <ImageView
@@ -109,30 +157,41 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_toLeftOf="@+id/txtRePass"
-                android:layout_marginTop="25dp" />
+                android:layout_marginTop="25dp"
+                android:src="@drawable/icon_pass"/>
 
             <EditText
                 android:id="@+id/txtRePass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:layout_marginLeft="30dp"
                 android:textColor="@color/white"
-                android:textSize="25dp"
+                android:textSize="17dp"
                 />
         </FrameLayout>
 
-    <Button
+        <ToggleButton
+            android:id="@+id/passwordToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="500dp"
+            android:backgroundTint="@color/camdonau"
+            android:textColor="@color/white"
+            android:textOff="OFF"
+            android:textOn="ON" />
+
+        <Button
             android:id="@+id/btn_Res"
-            android:layout_width="400dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="580dp"
             android:padding="10dp"
-            android:text="Register"
+            android:text="Đăng ký"
             android:textAllCaps="false"
-            android:textSize="25dp"
-            android:backgroundTint="@color/camNen"/>
+            android:textSize="20dp"
+            android:backgroundTint="@color/camdonau"/>
 
     </FrameLayout>
 
