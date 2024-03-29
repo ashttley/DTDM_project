@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:text="Nhập email của bạn"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="17dp"
             android:layout_marginTop="300dp"
             android:layout_marginLeft="50dp" />
 
@@ -74,13 +74,87 @@
                 android:textSize="17dp" />
 
         </FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nhập mật khẩu mới và xác nhận"
+            android:textColor="@color/white"
+            android:textSize="17dp"
+            android:layout_marginTop="400dp"
+            android:layout_marginLeft="50dp"
+            />
 
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="420dp"
+            android:layout_gravity="center_horizontal"
+            >
+
+            <ImageView
+                android:id="@+id/icon_pass"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/icon_pass"
+                android:layout_toLeftOf="@+id/txtRepass"
+                android:layout_marginTop="20dp" />
+
+            <EditText
+                android:id="@+id/txtRePass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:textColor="@color/white"
+                android:textSize="17dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="470dp"
+            android:layout_gravity="center_horizontal"
+            >
+
+            <ImageView
+                android:id="@+id/icon_pass1"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/icon_pass"
+                android:layout_toLeftOf="@+id/txtRepass1"
+                android:layout_marginTop="20dp" />
+
+            <EditText
+                android:id="@+id/txtRePass1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:textColor="@color/white"
+                android:textSize="17dp" />
+
+        </FrameLayout>
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="51dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="520dp">
+
+            <ToggleButton
+                android:id="@+id/passwordToggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="220dp"
+                android:backgroundTint="@color/camdonau"
+                android:textColor="@color/white"
+                android:textOff="OFF"
+                android:textOn="ON" />
+
+        </LinearLayout>
         <Button
             android:id="@+id/btn_Next"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="580dp"
+            android:layout_marginTop="600dp"
             android:padding="10dp"
             android:text="Tiếp tục"
             android:textAllCaps="false"

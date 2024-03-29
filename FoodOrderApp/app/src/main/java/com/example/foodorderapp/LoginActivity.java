@@ -85,20 +85,21 @@ public class LoginActivity extends AppCompatActivity {
     }
     // Định dạng email
     public static boolean isValidEmail(String email) {
-        String emailPattern = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+        // Định dạng email đơn giản: [username]@[domain]
+        String emailPattern = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
         Pattern pattern = Pattern.compile(emailPattern);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
     private void Login() {
         String email, pass;
-        email = txtEmail.getText().toString();
-        pass = txtPass.getText().toString();
+        email = txtEmail.getText().toString().trim();
+        pass = txtPass.getText().toString().trim();
         if(email.isEmpty()){
             Toast.makeText(this,"Vui lòng nhập email!", Toast.LENGTH_SHORT).show();
             return;
         }
-        else if(isValidEmail(email)!=true){
+        else if(!isValidEmail(email)){
             Toast.makeText(this,"Vui lòng nhập đúng định dạng email!", Toast.LENGTH_SHORT).show();
             return;
         }

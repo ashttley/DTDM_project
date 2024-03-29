@@ -14,11 +14,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,27 +29,25 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SignUpActivity extends AppCompatActivity {
-    private EditText txt_username,txt_phone,txt_email, txt_pass, txt_repass;
+    private EditText txt_username, txt_phone, txt_email, txt_pass, txt_repass;
     private TextView txt_login;
     private ToggleButton toggle;
     private Button btn_res;
     private DatabaseReference dt_User;
     private FirebaseAuth mAuth;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-
-        txt_username =(EditText) findViewById(R.id.txtUsername) ;
-        txt_phone =(EditText) findViewById(R.id.txtPhone) ;
-        txt_email = (EditText) findViewById(R.id.txtEmail);
-        txt_pass = (EditText) findViewById(R.id.txtPass);
-        txt_repass = (EditText) findViewById(R.id.txtRePass);
-        txt_login = (TextView) findViewById(R.id.txtLogin);
-        btn_res = (Button) findViewById(R.id.btn_Res);
+        txt_username = findViewById(R.id.txtUsername);
+        txt_phone = findViewById(R.id.txtPhone);
+        txt_email = findViewById(R.id.txtEmail);
+        txt_pass = findViewById(R.id.txtPass);
+        txt_repass = findViewById(R.id.txtRePass);
+        txt_login = findViewById(R.id.txtLogin);
+        btn_res = findViewById(R.id.btn_Res);
         toggle = findViewById(R.id.passwordToggle);
 
         dt_User = FirebaseDatabase.getInstance().getReference("User");
@@ -108,81 +106,77 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void Register() {
-        String username = txt_username.getText().toString();
-        String phone = txt_phone.getText().toString();
-        String email = txt_email.getText().toString();
-        String pass = txt_pass.getText().toString();
-        String repass = txt_repass.getText().toString();
+        String username = txt_username.getText().toString().trim();
+        String phone = txt_phone.getText().toString().trim();
+        String email = txt_email.getText().toString().trim();
+        String pass = txt_pass.getText().toString().trim();
+        String repass = txt_repass.getText().toString().trim();
 
-        if(username.isEmpty()){
-            Toast.makeText(this,"Vui lòng nhập tên người dùng!", Toast.LENGTH_SHORT).show();
+        if (username.isEmpty()) {
+            Toast.makeText(this, "Vui lòng nhập tên người dùng!", Toast.LENGTH_SHORT).show();
             return;
-        } else if(phone.isEmpty()){
-            Toast.makeText(this,"Vui lòng nhập số điện thoại!", Toast.LENGTH_SHORT).show();
+        } else if (phone.isEmpty()) {
+            Toast.makeText(this, "Vui lòng nhập số điện thoại!", Toast.LENGTH_SHORT).show();
             return;
-        } else if(email.isEmpty()){
-            Toast.makeText(this,"Vui lòng nhập email!", Toast.LENGTH_SHORT).show();
-            return;
-        } else if(!isValidEmail(email)){
-            Toast.makeText(this,"Email không hợp lệ!", Toast.LENGTH_SHORT).show();
-            return;
-        } else if(pass.isEmpty()){
-            Toast.makeText(this,"Vui lòng nhập mật khẩu!", Toast.LENGTH_SHORT).show();
-            return;
-        } else if(repass.isEmpty()){
-            Toast.makeText(this,"Vui lòng nhập lại mật khẩu!", Toast.LENGTH_SHORT).show();
-            return;
-        } else if(!pass.equals(repass)){
-            Toast.makeText(this,"Mật khẩu không khớp!", Toast.LENGTH_SHORT).show();
-            return;
-        } else if(pass.length() < 6){
-            Toast.makeText(this,"Mật khẩu phải có ít nhất 6 ký tự!", Toast.LENGTH_SHORT).show();
-            return;
-        } else if(!isValidPhoneNumber(phone)){
-            Toast.makeText(this,"Số điện thoại không hợp lệ!", Toast.LENGTH_SHORT).show();
+        } else if (email.isEmpty()) {
+            Toast.makeText(this, "Vui lòng nhập email!", Toast.LENGTH_SHORT).show();
             return;
         }
-        else{
-            dt_User.orderByChild("email").equalTo(email).addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.exists()) {
-                        // Tài khoản đã tồn tại
-                        Toast.makeText(SignUpActivity.this, "Tài khoản đã tồn tại!", Toast.LENGTH_SHORT).show();
-                    } else {
-                        // Tài khoản chưa tồn tại, tiến hành tạo mới
-                        mAuth.createUserWithEmailAndPassword(email, pass)
-                                .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<AuthResult> task) {
-                                        if (task.isSuccessful()) {
-                                            // Tạo tài khoản thành công
-                                            FirebaseUser user = mAuth.getCurrentUser();
-                                            if (user != null) {
-                                                String userId = user.getUid();
-                                                User newUser = new User(username, phone, email, pass);
-                                                dt_User.child(userId).setValue(newUser);
-                                                Toast.makeText(SignUpActivity.this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
-                                                Intent i = new Intent(SignUpActivity.this, LoginActivity.class);
-                                                startActivity(i);
-                                                finish();
-                                            }
-                                        } else {
-                                            // Đăng ký thất bại
-                                            Toast.makeText(SignUpActivity.this, "Đăng ký thất bại! Vui lòng thử lại.", Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-                                });
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                    // Xử lý nếu có lỗi xảy ra
-                    Toast.makeText(SignUpActivity.this, "Lỗi kiểm tra tài khoản! Vui lòng thử lại.", Toast.LENGTH_SHORT).show();
-                }
-            });
+        else if (pass.isEmpty()) {
+            Toast.makeText(this, "Vui lòng nhập mật khẩu!", Toast.LENGTH_SHORT).show();
+            return;
+        } else if (repass.isEmpty()) {
+            Toast.makeText(this, "Vui lòng nhập lại mật khẩu!", Toast.LENGTH_SHORT).show();
+            return;
+        } else if (!pass.equals(repass)) {
+            Toast.makeText(this, "Mật khẩu không khớp!", Toast.LENGTH_SHORT).show();
+            return;
+        } else if (!isValidPhoneNumber(phone)) {
+            Toast.makeText(this, "Số điện thoại không hợp lệ!", Toast.LENGTH_SHORT).show();
+            return;
+        } else if (!isValidEmail(email)) {
+            Toast.makeText(this, "Email không hợp lệ!", Toast.LENGTH_SHORT).show();
+            return;
         }
 
-    }
+    // Kiểm tra xem người dùng đã tồn tại trong cơ sở dữ liệu chưa
+        dt_User.addListenerForSingleValueEvent(new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot snapshot) {
+            for (DataSnapshot ds : snapshot.getChildren()) {
+                User user = ds.getValue(User.class);
+                if (user != null && user.getUsername().equals(username)) {
+                    Toast.makeText(SignUpActivity.this, "Tên người dùng đã tồn tại!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+
+            // Tạo tài khoản người dùng trong Firebase Authentication
+            mAuth.createUserWithEmailAndPassword(email, pass)
+                    .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Đăng ký thành công
+                                // Lấy ID người dùng hiện tại từ Firebase Authentication
+                                String userID = mAuth.getCurrentUser().getUid();
+                                User newUser = new User( username, phone, email, pass);
+                                dt_User.child(userID).setValue(newUser);
+                                Toast.makeText(SignUpActivity.this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(SignUpActivity.this, LoginActivity.class);
+                                startActivity(i);
+                            } else {
+                                // Đăng ký thất bại
+                                Toast.makeText(SignUpActivity.this, "Đăng ký thất bại! Vui lòng thử lại.", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError error) {
+            Toast.makeText(SignUpActivity.this, "Đã xảy ra lỗi. Vui lòng thử lại sau.", Toast.LENGTH_SHORT).show();
+        }
+    });
+}
 }
