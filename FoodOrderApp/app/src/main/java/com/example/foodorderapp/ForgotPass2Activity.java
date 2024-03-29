@@ -70,7 +70,7 @@ public class ForgotPass2Activity extends AppCompatActivity {
 
         // Cập nhật mật khẩu mới trong Realtime Database
         dt_User = FirebaseDatabase.getInstance().getReference("User").child(userId);
-        dt_User.child("password").setValue(newpass)
+        dt_User.child("pass").setValue(newpass)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
