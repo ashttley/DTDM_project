@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/hello"
             android:fontFamily="@font/lobster"
-            android:text="Hạnh phúc bắt đầu từ những bữa ăn"
+            android:text="Hello explore your dream food "
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textAlignment="center"
@@ -47,7 +47,7 @@
             android:layout_marginTop="580dp"
             android:backgroundTint="@color/camdonau"
             android:padding="10dp"
-            android:text="Đăng ký"
+            android:text="Register"
             android:textAllCaps="false"
             android:textSize="20dp" />
 
@@ -59,7 +59,7 @@
             android:layout_marginTop="650dp"
             android:backgroundTint="@color/da"
             android:padding="10dp"
-            android:text="Đăng nhập"
+            android:text="Login"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="20dp" />

@@ -1,59 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
-    <FrameLayout
+    android:orientation="vertical">
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="wrap_content"
+       >
+
+        <TextView
+            android:id="@+id/txtHello"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Hi, Thao"
+            android:textColor="@color/camdonau"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/img_bg"
-            android:foreground="@drawable/btn_bg_design"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/raucu" />
+            android:id="@+id/imgAvt"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/woman"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="200dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eat and order"
+        android:textColor="@color/black"
+        android:layout_marginTop="-10dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="18dp" />
+
+    <FrameLayout
+        android:layout_width="350dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/what"
+        android:padding="15dp">
 
         <TextView
-            android:id="@+id/txtWelcome"
-            android:layout_width="match_parent"
+            android:id="@+id/what"
+            android:layout_width="243dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
-            android:fontFamily="@font/lobster"
-            android:gravity="center"
-            android:text="Welcome to my food app"
+            android:layout_gravity="center_horizontal"
+            android:text="What would you like to order?"
             android:textColor="@color/white"
-            android:textSize="36dp" />
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/txtSearch"
+            android:layout_width="279dp"
             android:layout_height="wrap_content"
-            android:id="@+id/hello"
-            android:text="Hello explore your dream food"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:layout_marginTop="250dp"/>
-        <Button
-            android:layout_width="200dp"
-            android:layout_marginTop="400dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="wrap_content"
-            android:text="Đăng xuất"
-            android:id="@+id/btn_Logout"
-            android:backgroundTint="@color/camdonau"/>
-        <Button
-            android:layout_width="200dp"
-            android:layout_marginTop="500dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="wrap_content"
-            android:text="Quy lại"
-            android:id="@+id/btn_Back"
-            android:backgroundTint="@color/camdonau"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/search_bg"
+            android:drawableLeft="@drawable/icon_search"
+            android:hint=" Search"
+            android:padding="15dp" />
+
+
     </FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categories"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/black"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_item"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EDE9E9"
+            android:padding="10dp"
+            android:layout_marginTop="161dp"
+        >
+            <LinearLayout
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@drawable/icon_home"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Home"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cart"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_delivery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Delivery"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_chat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chat"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Setting"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+        </LinearLayout>
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>

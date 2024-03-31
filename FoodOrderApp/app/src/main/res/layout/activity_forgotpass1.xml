@@ -43,7 +43,7 @@
             android:id="@+id/txtEnterEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nhập email của bạn"
+            android:text="Enter your email"
             android:textColor="@color/white"
             android:textSize="17dp"
             android:layout_marginTop="300dp"
@@ -77,7 +77,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nhập mật khẩu mới và xác nhận"
+            android:text="Enter password and re password"
             android:textColor="@color/white"
             android:textSize="17dp"
             android:layout_marginTop="400dp"
@@ -156,7 +156,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="600dp"
             android:padding="10dp"
-            android:text="Tiếp tục"
+            android:text="Login"
             android:textAllCaps="false"
             android:textSize="20dp"
             android:backgroundTint="@color/camdonau" />
