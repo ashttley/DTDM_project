@@ -4,65 +4,71 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp"
+        android:text="Welcome to my food app"
+        android:textColor="@color/camdonau"
+        android:textSize="30sp"
+        android:textStyle="italic"
+        android:fontFamily="@font/lobster"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:text="Hello explore your dream food"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/camdonau"
+       />
+
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         >
-
         <ImageView
+            android:layout_width="302dp"
+            android:layout_height="299dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
             android:id="@+id/img_bg"
-            android:foreground="@drawable/btn_bg_design"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/raucu" />
-
-        <TextView
-            android:id="@+id/txtWelcome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
-            android:fontFamily="@font/lobster"
-            android:gravity="center"
-            android:text="Welcome to my food app"
-            android:textColor="@color/white"
-            android:textSize="36dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/hello"
-            android:fontFamily="@font/lobster"
-            android:text="Hello explore your dream food "
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:textAlignment="center"
-            android:layout_marginTop="250dp"/>
+            android:src="@drawable/hamburger" />
 
         <Button
             android:id="@+id/btn_Res"
-            android:layout_width="200dp"
+            android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="580dp"
+            android:layout_marginTop="360dp"
             android:backgroundTint="@color/camdonau"
-            android:padding="10dp"
+            android:padding="15dp"
             android:text="Register"
+            android:textColor="@color/white"
             android:textAllCaps="false"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/btn_Login"
-            android:layout_width="200dp"
+            android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="650dp"
+            android:layout_marginTop="430dp"
             android:backgroundTint="@color/da"
-            android:padding="10dp"
+            android:padding="15dp"
             android:text="Login"
+            android:textAllCaps="false"
             android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="162dp"
+            android:layout_height="158dp"
+            android:layout_marginTop="550dp"
+            android:src="@drawable/salad" />
     </FrameLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

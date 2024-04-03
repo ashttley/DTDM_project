@@ -9,86 +9,55 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-        <ImageView
-            android:id="@+id/img_bg"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:foreground="@drawable/btn_bg_design"
-            android:scaleType="centerCrop"
-            android:src="@drawable/raucu" />
-
-        <TextView
-            android:id="@+id/txtWelcome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
-            android:fontFamily="@font/lobster"
-            android:gravity="center"
-            android:text="Welcome to my food app"
-            android:textColor="@color/white"
-            android:textSize="36dp" />
 
         <TextView
             android:id="@+id/hello"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Forgot Password"
-            android:textColor="@color/white"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:layout_marginTop="200dp" />
-
-        <TextView
-            android:id="@+id/txtEnterEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enter your email"
-            android:textColor="@color/white"
-            android:textSize="17dp"
-            android:layout_marginTop="300dp"
-            android:layout_marginLeft="50dp" />
+            android:text="Forgot Password"
+            android:textColor="@color/black"
+            android:textSize="27dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="100dp" />
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="340dp"
             android:layout_gravity="center_horizontal"
-            >
+            android:layout_marginTop="200dp"
+            android:background="@drawable/input_design"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp">
 
             <ImageView
                 android:id="@+id/icon_email"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/icon_email"
-                android:layout_toLeftOf="@+id/txtEmail"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="17dp"
+                android:src="@drawable/icon_email" />
 
             <EditText
                 android:id="@+id/txtEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:hint="Email"
-                android:layout_marginLeft="30dp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="17dp" />
 
-        </FrameLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Enter password and re password"
-            android:textColor="@color/white"
-            android:textSize="17dp"
-            android:layout_marginTop="400dp"
-            android:layout_marginLeft="50dp"
-            />
+        </LinearLayout>
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="420dp"
+            android:layout_marginTop="260dp"
             android:layout_gravity="center_horizontal"
+            android:background="@drawable/input_design"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
             >
 
             <ImageView
@@ -96,23 +65,27 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/icon_pass"
-                android:layout_toLeftOf="@+id/txtRepass"
                 android:layout_marginTop="20dp" />
 
             <EditText
                 android:id="@+id/txtRePass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:textColor="@color/white"
-                android:textSize="17dp" />
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                android:hint="Password"/>
 
-        </FrameLayout>
-        <FrameLayout
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="470dp"
+            android:layout_marginTop="320dp"
             android:layout_gravity="center_horizontal"
+            android:background="@drawable/input_design"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
             >
 
             <ImageView
@@ -127,16 +100,17 @@
                 android:id="@+id/txtRePass1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:textColor="@color/white"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/black"
+                android:hint="Re password"
                 android:textSize="17dp" />
 
-        </FrameLayout>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="300dp"
             android:layout_height="51dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="520dp">
+            android:layout_marginTop="380dp">
 
             <ToggleButton
                 android:id="@+id/passwordToggle"
@@ -151,15 +125,21 @@
         </LinearLayout>
         <Button
             android:id="@+id/btn_Next"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="600dp"
-            android:padding="10dp"
+            android:layout_marginTop="450dp"
+            android:padding="15dp"
             android:text="Login"
             android:textAllCaps="false"
             android:textSize="20dp"
+            android:textColor="@color/white"
             android:backgroundTint="@color/camdonau" />
+        <ImageView
+            android:layout_width="162dp"
+            android:layout_height="158dp"
+            android:layout_marginTop="650dp"
+            android:src="@drawable/salad" />
     </FrameLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

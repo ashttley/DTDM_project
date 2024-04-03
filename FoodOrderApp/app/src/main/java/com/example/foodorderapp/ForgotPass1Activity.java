@@ -102,7 +102,6 @@ public class ForgotPass1Activity extends AppCompatActivity {
                                     Toast.makeText(ForgotPass1Activity.this, "Cập nhật mật khẩu thành công!", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(ForgotPass1Activity.this, MainActivity.class);
                                     startActivity(intent);
-                                    finish();
                                 } else {
                                     // Xử lý lỗi nếu cập nhật mật khẩu thất bại
                                     Toast.makeText(ForgotPass1Activity.this, "Cập nhật mật khẩu thất bại: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();

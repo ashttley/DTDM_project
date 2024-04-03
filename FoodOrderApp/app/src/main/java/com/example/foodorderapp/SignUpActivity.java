@@ -98,10 +98,12 @@ public class SignUpActivity extends AppCompatActivity {
 
     // Kiểm tra định dạng email
     public static boolean isValidEmail(String email) {
-        // Định dạng email đơn giản: [username]@[domain]
-        String emailPattern = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        String emailPattern = "^[A-Za-z0-9_.+-]+@[A-Za-z0-9-]+\\.[A-Za-z0-9-.]+$";
+        // Tạo một đối tượng Pattern từ biểu thức chính quy
         Pattern pattern = Pattern.compile(emailPattern);
+        // Sử dụng Matcher để so khớp địa chỉ email với biểu thức chính quy
         Matcher matcher = pattern.matcher(email);
+        // Trả về true nếu địa chỉ email khớp với biểu thức chính quy, ngược lại trả về false
         return matcher.matches();
     }
 
@@ -145,8 +147,8 @@ public class SignUpActivity extends AppCompatActivity {
         public void onDataChange(@NonNull DataSnapshot snapshot) {
             for (DataSnapshot ds : snapshot.getChildren()) {
                 User user = ds.getValue(User.class);
-                if (user != null && user.getUsername().equals(username)) {
-                    Toast.makeText(SignUpActivity.this, "Tên người dùng đã tồn tại!", Toast.LENGTH_SHORT).show();
+                if (user != null && user.getEmail().equals(email)) {
+                    Toast.makeText(SignUpActivity.this, "Tài khoản đã tồn tại!", Toast.LENGTH_SHORT).show();
                     return;
                 }
             }
@@ -163,8 +165,9 @@ public class SignUpActivity extends AppCompatActivity {
                                 User newUser = new User( username, phone, email, pass);
                                 dt_User.child(userID).setValue(newUser);
                                 Toast.makeText(SignUpActivity.this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
-                                Intent i = new Intent(SignUpActivity.this, LoginActivity.class);
+                                Intent i = new Intent(SignUpActivity.this, MainActivity.class);
                                 startActivity(i);
+                                finish();
                             } else {
                                 // Đăng ký thất bại
                                 Toast.makeText(SignUpActivity.this, "Đăng ký thất bại! Vui lòng thử lại.", Toast.LENGTH_SHORT).show();
