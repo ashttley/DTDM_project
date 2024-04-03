@@ -3,6 +3,6 @@
     <corners android:radius="60dp" /> <!-- Bo góc của button -->
     <stroke
         android:color="@color/camdonau"
-        android:width="3dp"
+        android:width="2dp"
     />
 </shape>

@@ -5,13 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       >
+        >
 
         <TextView
             android:id="@+id/txtHello"
@@ -30,7 +31,7 @@
             android:layout_height="50dp"
             android:src="@mipmap/woman"
             android:layout_marginTop="17dp"
-            android:layout_marginLeft="150dp" />
+            android:layout_marginLeft="155dp" />
     </LinearLayout>
 
     <TextView
@@ -43,22 +44,24 @@
         android:layout_marginLeft="20dp"
         android:textSize="18dp" />
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="350dp"
-        android:layout_height="180dp"
+        android:layout_height="165dp"
         android:layout_marginTop="20dp"
+        android:orientation="vertical"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/what"
-        android:padding="15dp">
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/what"
             android:layout_width="243dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center_horizontal"
             android:text="What would you like to order?"
             android:textColor="@color/white"
-            android:textSize="25dp"
+            android:textSize="24dp"
             android:textStyle="bold" />
 
         <EditText
@@ -66,19 +69,20 @@
             android:layout_width="279dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="20dp"
+            android:layout_gravity="center_horizontal"
             android:background="@drawable/search_bg"
             android:drawableRight="@drawable/icon_search"
             android:hint="Search"
             android:padding="15dp" />
-    </FrameLayout>
-<!--    <Button-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:id="@+id/btn_Logout"-->
-<!--        android:text="Log out"-->
-<!--        android:backgroundTint="@color/camdonau"/>-->
+    </LinearLayout>
+    <!--    <Button-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:id="@+id/btn_Logout"-->
+    <!--        android:text="Log out"-->
+    <!--        android:backgroundTint="@color/camdonau"/>-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -92,7 +96,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_gravity="center_horizontal"
         android:id="@+id/list_categories"
         >
@@ -127,128 +131,140 @@
 
 
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="310dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp">
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:id="@+id/list_product"
             android:layout_marginTop="20dp">
         </LinearLayout>
     </ScrollView>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <LinearLayout
-            android:orientation="horizontal"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:background="#EDE9E9"
-            android:padding="10dp"
-        >
+            android:orientation="horizontal"
+            android:padding="10dp">
+
             <LinearLayout
                 android:id="@+id/home"
-                android:layout_weight="2"
-                android:orientation="vertical"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
                 <ImageView
-                    android:src="@drawable/icon_home"
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_home" />
+
                 <TextView
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="Home"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black" />
             </LinearLayout>
 
 
             <LinearLayout
                 android:id="@+id/cart"
-                android:layout_weight="2"
-                android:orientation="vertical"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
                 <ImageView
-                    android:layout_gravity="center"
-                    android:src="@drawable/icon_cart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_cart" />
+
                 <TextView
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="Cart"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/delivery"
-                android:layout_weight="2"
-                android:orientation="vertical"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_gravity="center"
-                    android:src="@drawable/icon_delivery"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
-                <TextView
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Delivery"
-                    android:textColor="@color/black"/>
-            </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_delivery" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Delivery"
+                    android:textColor="@color/black" />
+            </LinearLayout>
 
 
             <LinearLayout
                 android:id="@+id/chat"
-                android:layout_weight="2"
-                android:orientation="vertical"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
                 <ImageView
-                    android:layout_gravity="center"
-                    android:src="@drawable/icon_chat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_chat" />
+
                 <TextView
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="Chat"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/setting"
-                android:layout_weight="2"
-                android:orientation="vertical"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
                 <ImageView
-                    android:layout_gravity="center"
-                    android:src="@drawable/icon_setting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_setting" />
+
                 <TextView
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="Setting"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black" />
             </LinearLayout>
         </LinearLayout>
+    </RelativeLayout>
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

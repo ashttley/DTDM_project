@@ -20,7 +20,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-
 public class MainActivity extends AppCompatActivity {
     private TextView hello_name;
     private Button logout;
@@ -53,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
 //                Logout();
 //            }
 //        });
-
     }
+
     private void displayProducts(){
         DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference("products");
         productsRef.addValueEventListener(new ValueEventListener() {
@@ -64,40 +63,54 @@ public class MainActivity extends AppCompatActivity {
                 productsLayout.removeAllViews();
 
                 for (DataSnapshot productsSnapshot : dataSnapshot.getChildren()) {
-                    // Lấy thông tin về sản phẩm từ dataSnapshot
-                    String productsImgUrl = productsSnapshot.child("image").getValue(String.class);
+                    String productsImageUrl = productsSnapshot.child("image").getValue(String.class);
                     String productsName = productsSnapshot.child("name").getValue(String.class);
                     String productsDesciption = productsSnapshot.child("description").getValue(String.class);
-                    String productsPrice = productsSnapshot.child("price").getValue(String.class);
+//                    String productsPrice = productsSnapshot.child("price").getValue(String.class);
 
                     // Tạo các thành phần giao diện người dùng
                     LinearLayout productContainer = new LinearLayout(MainActivity.this);
                     productContainer.setOrientation(LinearLayout.HORIZONTAL);
                     productsLayout.addView(productContainer);
 
-                    ImageView productImage = new ImageView(MainActivity.this);
-                    // Sử dụng thư viện hình ảnh như Picasso hoặc Glide để tải và hiển thị hình ảnh từ productsImgUrl
-                    Picasso.get().load(productsImgUrl).into(productImage);
-                    // Cấu hình kích thước và thuộc tính khác của ImageView
+                    // anh san pham
+                    ImageView productImage = new ImageView(getApplicationContext());
+                    int maxHeightPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 20, getResources().getDisplayMetrics());
+                    int maxWidthPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 20, getResources().getDisplayMetrics());
+                    productImage.setMaxHeight(maxHeightPx);
+                    productImage.setMaxWidth(maxWidthPx);
+                    Picasso.get().load(productsImageUrl).into(productImage);
 
-                    LinearLayout productInfoLayout = new LinearLayout(MainActivity.this);
-                    productInfoLayout.setOrientation(LinearLayout.VERTICAL);
+                    // Tạo linearlayout bao phần chữ
+                    LinearLayout productInfor = new LinearLayout(MainActivity.this);
+                    productInfor.setOrientation(LinearLayout.VERTICAL);
+                    productContainer.addView(productInfor);
 
+
+                    // ten san pham
                     TextView productNameText = new TextView(MainActivity.this);
                     productNameText.setText(productsName);
+                    productNameText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
+                    productNameText.setTextColor(getResources().getColor(R.color.black));
 
+                    // mo ta san pham
                     TextView productDescriptionText = new TextView(MainActivity.this);
                     productDescriptionText.setText(productsDesciption);
+                    productDescriptionText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
+                    productDescriptionText.setTextColor(getResources().getColor(R.color.black));
 
-                    TextView productPriceText = new TextView(MainActivity.this);
-                    productPriceText.setText(productsPrice);
+                    // gia san pham
+//                    TextView productPriceText = new TextView(MainActivity.this);
+//                    productPriceText.setText(productsPrice);
+//                    productPriceText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
+//                    productPriceText.setTextColor(getResources().getColor(R.color.camdonau));
 
                     // Thêm các thành phần vào productContainer và productInfoLayout
-                    productContainer.addView(productImage);
-                    productContainer.addView(productInfoLayout);
-                    productInfoLayout.addView(productNameText);
-                    productInfoLayout.addView(productDescriptionText);
-                    productInfoLayout.addView(productPriceText);
+                    productInfor.addView(productNameText);
+                    productInfor.addView(productDescriptionText);
+//                    productInfor.addView(productPriceText);
+                    productsLayout.addView(productImage);
+
                 }
             }
 
@@ -124,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
                     categoryButton.setBackgroundResource(R.drawable.vien_button);
                     categoryButton.setTextColor(getResources().getColor(R.color.black)); // Áp dụng màu textColor
                     categoryButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17); // Áp dụng kích thước textSize
+
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                             LinearLayout.LayoutParams.WRAP_CONTENT,
                             LinearLayout.LayoutParams.WRAP_CONTENT
@@ -171,5 +185,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 }

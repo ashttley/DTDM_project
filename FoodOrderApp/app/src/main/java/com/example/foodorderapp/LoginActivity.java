@@ -1,4 +1,5 @@
 package com.example.foodorderapp;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,8 +28,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-public class LoginActivity extends AppCompatActivity {
 
+public class LoginActivity extends AppCompatActivity {
     private Button btn_login;
     private EditText txtEmail, txtPass;
     private ToggleButton toggle;
@@ -76,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
         txt_Signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(LoginActivity.this, SignUpActivity.class);
+                Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(i);
             }
         });
@@ -84,12 +85,11 @@ public class LoginActivity extends AppCompatActivity {
         txt_Forgotpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(LoginActivity.this, ForgotPass1Activity.class);
+                Intent i = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
                 startActivity(i);
             }
         });
     }
-
     // Kiểm tra định dạng email
     public static boolean isValidEmail(String email) {
         String emailPattern = "^[A-Za-z0-9_.+-]+@[A-Za-z0-9-]+\\.[A-Za-z0-9-.]+$";
@@ -126,10 +126,10 @@ public class LoginActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-                                      Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
-                                      Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                      startActivity(intent);
-                                      finish();
+                                        Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                        startActivity(intent);
+                                        finish();
                                     } else {
                                         Toast.makeText(LoginActivity.this, "Sai mật khẩu!", Toast.LENGTH_SHORT).show();
                                     }
