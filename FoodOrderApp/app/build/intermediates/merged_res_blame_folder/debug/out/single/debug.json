@@ -1,0 +1,214 @@
+[
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_icon_setting.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\icon_setting.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_btn_login_design.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\btn_login_design.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_salad.png.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\salad.png"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_user.png.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\user.png"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_icon_delivery.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\icon_delivery.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_hamburger_design.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\hamburger_design.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\layout_activity_forgot_password.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\layout\\activity_forgot_password.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\layout_activity_welcome.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\layout\\activity_welcome.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_icon_pass.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\icon_pass.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_icon_add.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\icon_add.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_input_design.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\input_design.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\mipmap-hdpi_woman.png.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\mipmap-hdpi\\woman.png"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_icon_search.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\icon_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\layout_activity_profile.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\layout\\activity_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\layout_activity_register.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_icon_taco.png.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\icon_taco.png"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_search_bg.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\search_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_phone.png.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\phone.png"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_icon_email.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\icon_email.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_vien_button.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\vien_button.xml"
+    },
+    {
+        "merged": "com.example.foodorderapp-merged_res-36:/layout_activity_profile.xml.flat",
+        "source": "com.example.foodorderapp-main-38:/layout/activity_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\layout_activity_cart.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\layout\\activity_cart.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.foodorderapp-merged_res-36:/layout_activity_edit2.xml.flat",
+        "source": "com.example.foodorderapp-main-38:/layout/activity_edit2.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_what.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\what.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_icon_chat.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\icon_chat.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_icon_cart.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\icon_cart.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\layout_activity_delivery.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\layout\\activity_delivery.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_pencil.png.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\pencil.png"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\font_lobster.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\font\\lobster.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_profile.png.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\profile.png"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_btn_res_design.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\btn_res_design.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\layout_activity_chat.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\layout\\activity_chat.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_hamburger.png.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\hamburger.png"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\mipmap-hdpi_salami_pizza.png.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\mipmap-hdpi\\salami_pizza.png"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_icon_home.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\icon_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-merged_res-36:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\manci\\.gradle\\daemon\\8.2\\com.example.foodorderapp-main-38:\\drawable\\ic_launcher_foreground.xml"
+    }
+]
