@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayProducts() {
-        DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference("Products");
+        DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference("products");
         productsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -102,66 +102,101 @@ public class MainActivity extends AppCompatActivity {
                 for (DataSnapshot productsSnapshot : dataSnapshot.getChildren()) {
                     String productsImageUrl = productsSnapshot.child("image").getValue(String.class);
                     String productsName = productsSnapshot.child("name").getValue(String.class);
-//                String productsDesciption = productsSnapshot.child("description").getValue(String.class);
+                    String productsDesciption = productsSnapshot.child("description").getValue(String.class);
                     String productsPrice = productsSnapshot.child("price").getValue(String.class);
 
-                    // Tạo các thành phần giao diện người dùng
+                    // Tạo các thành phần bao anh + infor san pham
                     LinearLayout productContainer = new LinearLayout(MainActivity.this);
                     productContainer.setOrientation(LinearLayout.HORIZONTAL);
                     productsLayout.addView(productContainer);
 
                     //Tao layout bao anh
                     LinearLayout imageContainer = new LinearLayout(MainActivity.this);
-                    imageContainer.setOrientation(LinearLayout.HORIZONTAL);
-                    int widthPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50, getResources().getDisplayMetrics());
-                    int heightPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50, getResources().getDisplayMetrics());
+                    int widthPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics());
+                    int heightPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics());
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(widthPx, heightPx);
-                    // Thiết lập margin top cho LinearLayout
-                    int marginTopPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, getResources().getDisplayMetrics());
-                    layoutParams.setMargins(0, marginTopPx, 0, 0);
-
                     imageContainer.setLayoutParams(layoutParams);
                     productContainer.addView(imageContainer);
 
                     // anh san pham
                     ImageView productImage = new ImageView(getApplicationContext());
                     Picasso.get().load(productsImageUrl).into(productImage);
+
+                    int widthImg = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 90, getResources().getDisplayMetrics());
+                    int heightImg = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 90, getResources().getDisplayMetrics());
+                    LinearLayout.LayoutParams ImageParams = new LinearLayout.LayoutParams(widthImg, heightImg);
+                    productImage.setLayoutParams(ImageParams);
+
                     imageContainer.addView(productImage);
 
                     // Tạo linearlayout bao phần chữ
                     LinearLayout productInfoLayout = new LinearLayout(MainActivity.this);
                     productInfoLayout.setOrientation(LinearLayout.VERTICAL);
-
+                    int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 470, getResources().getDisplayMetrics());
+                    int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 110, getResources().getDisplayMetrics());
+                    LinearLayout.LayoutParams layoutParamsInfor = new LinearLayout.LayoutParams(width, height);
+                    productInfoLayout.setLayoutParams(layoutParamsInfor);
 
                     // ten san pham
                     TextView productNameText = new TextView(MainActivity.this);
                     productNameText.setText("Tên: " + productsName);
                     productNameText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
                     productNameText.setTextColor(getResources().getColor(R.color.black));
+
+                    LinearLayout.LayoutParams nameTextParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                    nameTextParams.setMarginStart(20);
+                    productNameText.setLayoutParams(nameTextParams);
+
                     productInfoLayout.addView(productNameText);
 
                     // mo ta san pham
-                    // TextView productDescriptionText = new TextView(MainActivity.this);
-                    // productDescriptionText.setText(productsDesciption);
-                    // productDescriptionText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
-                    // productDescriptionText.setTextColor(getResources().getColor(R.color.black));
-                    // productInfoLayout.addView(productDescriptionText);
+                     TextView productDescriptionText = new TextView(MainActivity.this);
+                     productDescriptionText.setText("Mô tả: " +  productsDesciption);
+                     productDescriptionText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
+                     productDescriptionText.setTextColor(getResources().getColor(R.color.black));
+
+                    LinearLayout.LayoutParams descriptionTextParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                    descriptionTextParams.setMarginStart(20);
+                    productDescriptionText.setLayoutParams(descriptionTextParams);
+
+                     productInfoLayout.addView(productDescriptionText);
 
                     // gia san pham
                     TextView productPriceText = new TextView(MainActivity.this);
                     productPriceText.setText("Giá: " + productsPrice);
                     productPriceText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
                     productPriceText.setTextColor(getResources().getColor(R.color.camdonau));
+
+                    LinearLayout.LayoutParams priceTextParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                    priceTextParams.setMarginStart(20);
+                    productPriceText.setLayoutParams(priceTextParams);
+
                     productInfoLayout.addView(productPriceText);
 
                     // tao button add
                     ImageButton addButton = new ImageButton(MainActivity.this);
                     addButton.setBackgroundResource(R.drawable.icon_add);
-                    // Thiết lập kích thước cho ImageButton
+
+
                     int buttonWidthPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics());
                     int buttonHeightPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics());
                     LinearLayout.LayoutParams buttonLayoutParams = new LinearLayout.LayoutParams(buttonWidthPx, buttonHeightPx);
                     addButton.setLayoutParams(buttonLayoutParams);
+
+                    LinearLayout.LayoutParams buttonLayoutParamsM = new LinearLayout.LayoutParams(buttonWidthPx, buttonHeightPx);
+                    buttonLayoutParamsM.setMarginStart(370);
+                    addButton.setLayoutParams(buttonLayoutParamsM);
+
+                    // su ly xu kien khi nhan vao addbutton
+                    addButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            addToCart();
+                        }
+                    });
                     productInfoLayout.addView(addButton);
 
 
@@ -182,41 +217,156 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 LinearLayout categoryLayout = findViewById(R.id.list_categories);
-                categoryLayout.removeAllViews(); // Xóa các button cũ trước khi tạo mới
+                categoryLayout.removeAllViews();
 
                 for (DataSnapshot categorySnapshot : dataSnapshot.getChildren()) {
                     String categoryName = categorySnapshot.child("name").getValue(String.class);
+                    final String categoryID = categorySnapshot.child("id").getValue(String.class);
 
                     Button categoryButton = new Button(MainActivity.this);
                     categoryButton.setText(categoryName);
                     categoryButton.setAllCaps(false);
                     categoryButton.setBackgroundResource(R.drawable.vien_button);
-                    categoryButton.setTextColor(getResources().getColor(R.color.black)); // Áp dụng màu textColor
-                    categoryButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17); // Áp dụng kích thước textSize
+                    categoryButton.setTextColor(getResources().getColor(R.color.black));
+                    categoryButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
 
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                             LinearLayout.LayoutParams.WRAP_CONTENT,
                             LinearLayout.LayoutParams.WRAP_CONTENT
                     );
-                    layoutParams.setMargins(0, 0, 20, 0); // Đặt khoảng cách 20dp bên phải
-
+                    layoutParams.setMargins(0, 0, 20, 0);
                     categoryButton.setLayoutParams(layoutParams);
-                    categoryLayout.addView(categoryButton); // Thêm button vào LinearLayout
+                    categoryButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            displayProductsByCategory(categoryID);
+                        }
+                    });
+                    categoryLayout.addView(categoryButton);
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Xử lý lỗi nếu cần thiết
                 Toast.makeText(MainActivity.this, "Failed to retrieve categories", Toast.LENGTH_SHORT).show();
             }
         });
     }
-    private void Logout(){
-        mAuth.signOut();
-        Toast.makeText(MainActivity.this, "Successful Logout!", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        startActivity(intent);
+    private void displayProductsByCategory(final String categoryID){
+        DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference("products");
+        productsRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                LinearLayout productsLayout = findViewById(R.id.list_product);
+                productsLayout.removeAllViews();
+
+                for (DataSnapshot productsSnapshot : dataSnapshot.getChildren()) {
+                    String productsImageUrl = productsSnapshot.child("image").getValue(String.class);
+                    String productsName = productsSnapshot.child("name").getValue(String.class);
+                    String productsDesciption = productsSnapshot.child("description").getValue(String.class);
+                    String productsPrice = productsSnapshot.child("price").getValue(String.class);
+                    String productsCategoriesID = productsSnapshot.child("categories").getValue(String.class);
+
+                    if(productsCategoriesID.equals(categoryID)){
+                        // Tạo các thành phần bao anh + infor san pham
+                        LinearLayout productContainer = new LinearLayout(MainActivity.this);
+                        productContainer.setOrientation(LinearLayout.HORIZONTAL);
+                        productsLayout.addView(productContainer);
+
+                        //Tao layout bao anh
+                        LinearLayout imageContainer = new LinearLayout(MainActivity.this);
+                        int widthPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics());
+                        int heightPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics());
+                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(widthPx, heightPx);
+                        imageContainer.setLayoutParams(layoutParams);
+                        productContainer.addView(imageContainer);
+
+                        // anh san pham
+                        ImageView productImage = new ImageView(getApplicationContext());
+                        Picasso.get().load(productsImageUrl).into(productImage);
+
+                        int widthImg = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 90, getResources().getDisplayMetrics());
+                        int heightImg = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 90, getResources().getDisplayMetrics());
+                        LinearLayout.LayoutParams ImageParams = new LinearLayout.LayoutParams(widthImg, heightImg);
+                        productImage.setLayoutParams(ImageParams);
+
+                        imageContainer.addView(productImage);
+
+                        // Tạo linearlayout bao phần chữ
+                        LinearLayout productInfoLayout = new LinearLayout(MainActivity.this);
+                        productInfoLayout.setOrientation(LinearLayout.VERTICAL);
+                        int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 470, getResources().getDisplayMetrics());
+                        int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 110, getResources().getDisplayMetrics());
+                        LinearLayout.LayoutParams layoutParamsInfor = new LinearLayout.LayoutParams(width, height);
+                        productInfoLayout.setLayoutParams(layoutParamsInfor);
+
+                        // ten san pham
+                        TextView productNameText = new TextView(MainActivity.this);
+                        productNameText.setText("Tên: " + productsName);
+                        productNameText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
+                        productNameText.setTextColor(getResources().getColor(R.color.black));
+
+                        LinearLayout.LayoutParams nameTextParams = new LinearLayout.LayoutParams(
+                                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                        nameTextParams.setMarginStart(20);
+                        productNameText.setLayoutParams(nameTextParams);
+
+                        productInfoLayout.addView(productNameText);
+
+                        // mo ta san pham
+                        TextView productDescriptionText = new TextView(MainActivity.this);
+                        productDescriptionText.setText("Mô tả: " +  productsDesciption);
+                        productDescriptionText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
+                        productDescriptionText.setTextColor(getResources().getColor(R.color.black));
+
+                        LinearLayout.LayoutParams descriptionTextParams = new LinearLayout.LayoutParams(
+                                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                        descriptionTextParams.setMarginStart(20);
+                        productDescriptionText.setLayoutParams(descriptionTextParams);
+
+                        productInfoLayout.addView(productDescriptionText);
+
+                        // gia san pham
+                        TextView productPriceText = new TextView(MainActivity.this);
+                        productPriceText.setText("Giá: " + productsPrice);
+                        productPriceText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
+                        productPriceText.setTextColor(getResources().getColor(R.color.camdonau));
+
+                        LinearLayout.LayoutParams priceTextParams = new LinearLayout.LayoutParams(
+                                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                        priceTextParams.setMarginStart(20);
+                        productPriceText.setLayoutParams(priceTextParams);
+
+                        productInfoLayout.addView(productPriceText);
+
+                        // tao button add
+                        ImageButton addButton = new ImageButton(MainActivity.this);
+                        addButton.setBackgroundResource(R.drawable.icon_add);
+
+
+                        int buttonWidthPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics());
+                        int buttonHeightPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics());
+                        LinearLayout.LayoutParams buttonLayoutParams = new LinearLayout.LayoutParams(buttonWidthPx, buttonHeightPx);
+                        addButton.setLayoutParams(buttonLayoutParams);
+
+                        LinearLayout.LayoutParams buttonLayoutParamsM = new LinearLayout.LayoutParams(buttonWidthPx, buttonHeightPx);
+                        buttonLayoutParamsM.setMarginStart(370);
+                        addButton.setLayoutParams(buttonLayoutParamsM);
+
+                        productInfoLayout.addView(addButton);
+
+
+                        // Thêm productInfoLayout vào productContainer
+                        productContainer.addView(productInfoLayout);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(MainActivity.this, "Failed to retrieve products", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     private void displayUsername(){
         String userID = mAuth.getCurrentUser().getUid();
@@ -226,7 +376,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    User user = dataSnapshot.getValue(User.class);
+                    UserModel user = dataSnapshot.getValue(UserModel.class);
                     if (user != null) {
                         String username = user.getUsername();
                         hello_name.setText("Hi, " + username);
@@ -240,5 +390,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Failed to retrieve user data", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    private void addToCart(){
+
     }
 }

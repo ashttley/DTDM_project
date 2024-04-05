@@ -144,7 +144,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    User user = ds.getValue(User.class);
+                    UserModel user = ds.getValue(UserModel.class);
                     if (user != null && user.getEmail().equals(email)) {
                         Toast.makeText(RegisterActivity.this, "Tài khoản đã tồn tại!", Toast.LENGTH_SHORT).show();
                         return;
@@ -160,7 +160,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     // Đăng ký thành công
                                     // Lấy ID người dùng hiện tại từ Firebase Authentication
                                     String userID = mAuth.getCurrentUser().getUid();
-                                    User newUser = new User( username, phone, email, pass);
+                                    UserModel newUser = new UserModel( username, phone, email, pass);
                                     dt_User.child(userID).setValue(newUser);
                                     Toast.makeText(RegisterActivity.this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
                                     Intent i = new Intent(RegisterActivity.this, MainActivity.class);

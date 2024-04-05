@@ -12,9 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Your cart"
-        android:textSize="25dp"
+        android:textSize="30dp"
         android:textStyle="bold"
-        android:textColor="@color/black"
+        android:textColor="@color/camdonau"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"/>
     <RelativeLayout

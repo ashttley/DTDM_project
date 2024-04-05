@@ -13,19 +13,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
         android:orientation="vertical"
         android:id="@+id/layout_infor"
         >
-        <ImageButton
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal"
-            android:src="@mipmap/woman"
-           />
-        <LinearLayout
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Your Profile"
+            android:textSize="30dp"
+            android:textColor="@color/camdonau"
+            android:textStyle="bold"
+            />
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
             android:layout_marginStart="30dp"
             android:layout_marginTop="30dp">
@@ -45,19 +50,13 @@
                 android:textColor="@color/black"
                 android:id="@+id/edit_username"
                 android:textSize="17dp"/>
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="100dp"
-                android:background="@color/white"
-                android:src="@drawable/pencil"
-                />
+
         </LinearLayout>
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
             >
@@ -76,20 +75,13 @@
                 android:textColor="@color/black"
                 android:id="@+id/edit_phone"
                 android:textSize="17dp"/>
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="128dp"
-                android:background="@color/white"
-                android:src="@drawable/pencil"
-                />
         </LinearLayout>
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginStart="30dp"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp">
             <TextView
                 android:layout_width="wrap_content"
@@ -106,19 +98,12 @@
                 android:textColor="@color/black"
                 android:id="@+id/edit_pass"
                 android:textSize="17dp"/>
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="100dp"
-                android:background="@color/white"
-                android:src="@drawable/pencil"
-                />
         </LinearLayout>
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp">
 
@@ -142,6 +127,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
             android:text="Log out"

@@ -12,6 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         >
 
         <TextView
@@ -25,26 +26,18 @@
             android:textSize="20dp"
             android:textStyle="bold" />
 
-        <ImageButton
-            android:id="@+id/imgAvt"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="17dp"
-            android:layout_marginLeft="150dp"
-            android:src="@drawable/profile"
-            android:background="@color/white"
-            />
+        <TextView
+            android:id="@+id/txtOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eat and order"
+            android:textColor="@color/black"
+            android:layout_marginLeft="20dp"
+            android:textSize="18dp" />
+
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtOrder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Eat and order"
-        android:textColor="@color/black"
-        android:layout_marginTop="-20dp"
-        android:layout_marginLeft="20dp"
-        android:textSize="18dp" />
+
 
     <LinearLayout
         android:layout_width="350dp"
@@ -102,32 +95,6 @@
         android:layout_gravity="center_horizontal"
         android:id="@+id/list_categories"
         >
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_l1"
-            android:text=""
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginEnd="20dp"
-            />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_l2"
-            android:text=""
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginEnd="20dp"
-            />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_l3"
-            android:text=""
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            />
 
     </LinearLayout>
 
