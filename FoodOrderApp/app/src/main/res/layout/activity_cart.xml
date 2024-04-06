@@ -7,20 +7,17 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical">
-
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your cart"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:textColor="@color/camdonau"
+        android:orientation="horizontal"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"/>
+        android:id="@+id/layout_usernamecart"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:layout_marginTop="20dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -32,8 +29,62 @@
         </LinearLayout>
     </ScrollView>
     <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|center_horizontal"
+        android:id="@+id/layout_barThanhToan">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layout_thanhtoan"
+            android:orientation="horizontal">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkbox_All"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tổng thanh toán: "
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 VND"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="@color/camdonau"
+                android:id="@+id/txt_tongtien"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <Button
+                    android:id="@+id/btn_datHang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:backgroundTint="@color/camdonau"
+                    android:text="Đặt hàng"
+                    android:textAllCaps="true" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/layout_navbar">
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -26,8 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
     private TextView hello_name;
@@ -321,7 +320,7 @@ public class MainActivity extends AppCompatActivity {
 
                     // gia san pham
                     TextView productPriceText = new TextView(MainActivity.this);
-                    productPriceText.setText("Giá: " + productsPrice);
+                    productPriceText.setText("Giá: " + productsPrice + " VND");
                     productPriceText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
                     productPriceText.setTextColor(getResources().getColor(R.color.camdonau));
 
