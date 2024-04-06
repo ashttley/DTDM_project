@@ -219,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
                         addButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                addToCart(productsID);
+                                addToCart(productsID,productsImageUrl, productsName, productsPrice);
                             }
                         });
                         productInfoLayout.addView(addButton);
@@ -256,10 +256,10 @@ public class MainActivity extends AppCompatActivity {
                 for (DataSnapshot productsSnapshot : dataSnapshot.getChildren()) {
 
                     final String productsID = productsSnapshot.getKey();
-                    String productsImageUrl = productsSnapshot.child("image").getValue(String.class);
-                    String productsName = productsSnapshot.child("name").getValue(String.class);
-                    String productsDesciption = productsSnapshot.child("description").getValue(String.class);
-                    String productsPrice = productsSnapshot.child("price").getValue(String.class);
+                    final String productsImageUrl = productsSnapshot.child("image").getValue(String.class);
+                    final String productsName = productsSnapshot.child("name").getValue(String.class);
+                     String productsDesciption = productsSnapshot.child("description").getValue(String.class);
+                    final String productsPrice = productsSnapshot.child("price").getValue(String.class);
 
                     // Tạo các thành phần bao anh + infor san pham
                     LinearLayout productContainer = new LinearLayout(MainActivity.this);
@@ -350,7 +350,7 @@ public class MainActivity extends AppCompatActivity {
                     addButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            addToCart(productsID);
+                            addToCart(productsID,productsImageUrl, productsName, productsPrice);
                         }
                     });
                     productInfoLayout.addView(addButton);
@@ -513,7 +513,7 @@ public class MainActivity extends AppCompatActivity {
                         addButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                addToCart(productsID);
+                                addToCart(productsID, productsImageUrl, productsName, productsPrice);
                             }
                         });
                         productInfoLayout.addView(addButton);
@@ -554,10 +554,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private void addToCart(final String productsID) {
+    private void addToCart(final String productsID, final String productsImageUrl, final String productsName, final String productsPrice ) {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle("Chọn số lượng");
-        final EditText quantityEditText = new EditText(MainActivity.this);
+
+        EditText quantityEditText = new EditText(MainActivity.this);
         quantityEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
         builder.setView(quantityEditText);
 
@@ -565,12 +566,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String quantityString = quantityEditText.getText().toString();
-                int quantity = Integer.parseInt(quantityString);
-                addToCartWithQuantity(productsID,quantity);
+                if (!quantityString.isEmpty()) {
+                    try {
+                        int quantity = Integer.parseInt(quantityString);
+                        String userId = mAuth.getCurrentUser().getUid();
+                        DatabaseReference cartReference = FirebaseDatabase.getInstance().getReference("Cart");
+                        CartModel cart = new CartModel(productsName, productsPrice, quantity, productsImageUrl);
+                        cartReference.child(userId).child(productsID).setValue(cart);
+                        Toast.makeText(MainActivity.this, "Thêm vào giỏ hàng thành công!", Toast.LENGTH_SHORT).show();
+                    } catch (NumberFormatException e) {
+                        // Xử lý lỗi khi không thể chuyển đổi quantityString thành số nguyên
+                        Toast.makeText(MainActivity.this, "Số lượng không hợp lệ", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    // Xử lý lỗi khi quantityString rỗng
+                    Toast.makeText(MainActivity.this, "Vui lòng nhập số lượng", Toast.LENGTH_SHORT).show();
+                }
             }
-        });
-
-        builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
+        }).setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -580,8 +593,6 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
-    private void addToCartWithQuantity(String productsID, int quantity) {
-    }
 
 
 }

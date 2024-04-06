@@ -1,23 +1,23 @@
 package com.example.foodorderapp;
 
 public class CartModel {
-    private String productKey;
     private String productName;
-    private Double productPrice;
+    private String productImage;
+    private String  productPrice;
     private int productQuantity;
 
     public CartModel(){};
-    public CartModel(String key, String name, double price,  int quantity){
-        this.productKey = key;
+    public CartModel( String name, String price,  int quantity, String image){
+        this.productImage = image;
         this.productName = name;
         this.productPrice = price;
         this.productQuantity = quantity;
     }
-    public String getKey(){
-        return this.productKey;
+    public void setImage(String image){
+        this.productImage = image;
     }
-    public void setKey(String key){
-        this.productKey = key;
+    public String getImage(){
+        return this.productImage;
     }
     public void setName(String name){
         this.productName = name;
@@ -25,10 +25,10 @@ public class CartModel {
     public String getName(){
         return this.productName;
     }
-    public void setPrice(double price){
+    public void setPrice(String price){
         this.productPrice = price;
     }
-    public double getPrice(){
+    public String getPrice(){
         return this.productPrice;
     }
     public int getQuantity(){
