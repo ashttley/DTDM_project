@@ -7,6 +7,18 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your cart"
+        android:textStyle="bold"
+        android:textColor="@color/camdonau"
+        android:textSize="25sp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        tools:ignore="HardcodedText" />
+
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,11 +51,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/layout_thanhtoan"
             android:orientation="horizontal">
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/checkbox_All"
-                />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -51,7 +59,7 @@
                 android:textSize="17sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                />
+                tools:ignore="HardcodedText" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -59,7 +67,8 @@
                 android:textStyle="bold"
                 android:textSize="17sp"
                 android:textColor="@color/camdonau"
-                android:id="@+id/txt_tongtien"/>
+                android:id="@+id/txt_tongtien"
+                tools:ignore="HardcodedText" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -72,7 +81,6 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="20dp"
                     android:backgroundTint="@color/camdonau"
                     android:text="Đặt hàng"
                     android:textAllCaps="true" />
@@ -159,26 +167,6 @@
             </LinearLayout>
 
 
-            <LinearLayout
-                android:id="@+id/layout_chat"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@drawable/icon_chat" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Chat"
-                    android:textColor="@color/black" />
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/layout_profile"

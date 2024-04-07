@@ -208,26 +208,6 @@
             </LinearLayout>
 
 
-            <LinearLayout
-                android:id="@+id/layout_chat"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@drawable/icon_chat" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Chat"
-                    android:textColor="@color/black" />
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/layout_profile"

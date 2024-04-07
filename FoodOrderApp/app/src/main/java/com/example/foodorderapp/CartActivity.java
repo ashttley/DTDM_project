@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -24,11 +26,16 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 public class CartActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-
-    private LinearLayout home, delivery, chat, profile;
+    private Button btnDathang;
+    private LinearLayout home, delivery, profile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +43,8 @@ public class CartActivity extends AppCompatActivity {
 
         home = findViewById(R.id.layout_home);
         delivery = findViewById(R.id.layout_delivery);
-        chat = findViewById(R.id.layout_chat);
         profile = findViewById(R.id.layout_profile);
+        btnDathang = findViewById(R.id.btn_datHang);
 
         mAuth = FirebaseAuth.getInstance();
         //hien thi gio hang cua user
@@ -50,14 +57,6 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CartActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-        //chuyen huong chat
-        chat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(CartActivity.this, ChatActivity.class);
                 startActivity(intent);
             }
         });
@@ -79,22 +78,32 @@ public class CartActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 
+
     private void displayProductsInCart(){
+        // item thanh toan
+        TextView txt_tongTien = findViewById(R.id.txt_tongtien);
+        int tongTien = 0;
         String userID = mAuth.getCurrentUser().getUid();
         DatabaseReference dt_cart = FirebaseDatabase.getInstance().getReference("Cart");
-        dt_cart.child(userID).addValueEventListener(new ValueEventListener() {
+        dt_cart.child(userID);
+        dt_cart.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                LinearLayout layout_cart  =  findViewById(R.id.layout_productInCart);
+                LinearLayout layout_cart = findViewById(R.id.layout_productInCart);
                 layout_cart.removeAllViews();
-
-                for(DataSnapshot cartSnapshot : snapshot.getChildren()){
+                // HashMap ánh xạ giữa CheckBox và giá tiền
+                HashMap<CheckBox, Integer> productPrices = new HashMap<>();
+//                // haspmap anh xa giua checkbox va
+//                HashMap<CheckBox, Integer> productPrices = new HashMap<>();
+                for (DataSnapshot cartSnapshot : snapshot.getChildren()) {
                     String productsName = cartSnapshot.child("name").getValue(String.class);
                     String productsImageUrl = cartSnapshot.child("image").getValue(String.class);
                     String productsPrice = cartSnapshot.child("price").getValue(String.class);
-                    int productsQuantity = cartSnapshot.child("quantity").getValue(Integer.class);
+                    final int productsQuantity = cartSnapshot.child("quantity").getValue(Integer.class);
 
                     // tao mot container tong
                     LinearLayout cartContainer = new LinearLayout(CartActivity.this);
@@ -102,7 +111,7 @@ public class CartActivity extends AppCompatActivity {
 
                     LinearLayout.LayoutParams cartParams = new LinearLayout.LayoutParams(
                             LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                    cartParams.setMargins(23, 0, 0, 30);
+                    cartParams.setMargins(17, 0, 0, 30);
                     cartContainer.setLayoutParams(cartParams);
                     layout_cart.addView(cartContainer);
 
@@ -110,7 +119,7 @@ public class CartActivity extends AppCompatActivity {
                     // tao checkbox
                     CheckBox check = new CheckBox(CartActivity.this);
                     int widthCheckbox = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, getResources().getDisplayMetrics());
-                    int heightCheckbox= (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, getResources().getDisplayMetrics());
+                    int heightCheckbox = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, getResources().getDisplayMetrics());
                     LinearLayout.LayoutParams CheckboxParams = new LinearLayout.LayoutParams(widthCheckbox, heightCheckbox);
                     check.setLayoutParams(CheckboxParams);
                     cartContainer.addView(check);
@@ -118,8 +127,8 @@ public class CartActivity extends AppCompatActivity {
 
                     // push anh
                     ImageView productsImage = new ImageView(getApplicationContext());
-                    int widthImg= (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 90, getResources().getDisplayMetrics());
-                    int heightImg= (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 90, getResources().getDisplayMetrics());
+                    int widthImg = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 90, getResources().getDisplayMetrics());
+                    int heightImg = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 90, getResources().getDisplayMetrics());
                     LinearLayout.LayoutParams productsImageParams = new LinearLayout.LayoutParams(widthImg, heightImg);
                     productsImage.setLayoutParams(productsImageParams);
                     Picasso.get().load(productsImageUrl).into(productsImage);
@@ -133,7 +142,7 @@ public class CartActivity extends AppCompatActivity {
                     LinearLayout.LayoutParams layoutParamsInfor = new LinearLayout.LayoutParams(widthIfContainer, heightIfContainer);
                     inforContainer.setLayoutParams(layoutParamsInfor);
 
-                    LinearLayout.LayoutParams inforParams  = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams inforParams = new LinearLayout.LayoutParams(
                             LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                     inforParams.setMarginStart(20);
                     inforContainer.setLayoutParams(inforParams);
@@ -147,11 +156,11 @@ public class CartActivity extends AppCompatActivity {
 
                     //push price
                     TextView pricePro = new TextView(CartActivity.this);
-                    pricePro.setText("Giá: " + productsPrice + " VND");
+                    pricePro.setText("Giá: " + productsPrice + " VNĐ");
                     pricePro.setTextSize(17);
                     inforContainer.addView(pricePro);
 
-                   //container chua button + quantity
+                    //container chua button + quantity
                     LinearLayout quantityContainer = new LinearLayout(CartActivity.this);
                     quantityContainer.setOrientation(LinearLayout.HORIZONTAL);
                     int widthSLContainer = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics());
@@ -159,9 +168,9 @@ public class CartActivity extends AppCompatActivity {
                     LinearLayout.LayoutParams slContainerParams = new LinearLayout.LayoutParams(widthSLContainer, heightSLContainer);
                     quantityContainer.setLayoutParams(slContainerParams);
 
-                    LinearLayout.LayoutParams quantityParams  = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams quantityParams = new LinearLayout.LayoutParams(
                             LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                    quantityParams.setMarginStart(400);
+                    quantityParams.setMarginStart(250);
                     quantityContainer.setLayoutParams(quantityParams);
 
 
@@ -180,46 +189,120 @@ public class CartActivity extends AppCompatActivity {
                     quantityPro.setTextSize(17);
                     LinearLayout.LayoutParams editQuantityParams = new LinearLayout.LayoutParams(
                             LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                    editQuantityParams.setMargins(20, 0, 20, 20); // marginBottomValue là giá trị của marginBottom
+                    editQuantityParams.setMargins(20, 0, 20, 20);
                     quantityPro.setLayoutParams(editQuantityParams);
 
                     quantityContainer.addView(quantityPro);
 
-                     // button add
+                    // button add
                     ImageButton add = new ImageButton(CartActivity.this);
                     add.setBackgroundResource(R.drawable.icon_add);
-                    int widthAdd= (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics());
-                    int heightAdd= (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics());
+                    int widthAdd = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics());
+                    int heightAdd = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics());
                     LinearLayout.LayoutParams addParams = new LinearLayout.LayoutParams(widthAdd, heightAdd);
                     add.setLayoutParams(addParams);
                     quantityContainer.addView(add);
 
                     inforContainer.addView(quantityContainer);
                     cartContainer.addView(inforContainer);
+
+
+                    //xu ly su kien button
+                    reduce.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (productsQuantity > 0) {
+                                int updateQuantity = productsQuantity - 1;
+                                quantityPro.setText(String.valueOf(updateQuantity));
+                                cartSnapshot.child("quantity").getRef().setValue(updateQuantity);
+                            }
+                            if (productsQuantity == 0) {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(CartActivity.this);
+                                builder.setTitle("Xác nhận xóa sản phẩm")
+                                        .setMessage("Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?")
+                                        .setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                cartSnapshot.getRef().removeValue();
+                                            }
+                                        })
+                                        .setNegativeButton("Hủy", null)
+                                        .show();
+                            }
+                        }
+                    });
+                    add.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (productsQuantity > 0) {
+                                int updateQuantity = productsQuantity + 1;
+                                quantityPro.setText(String.valueOf(updateQuantity));
+                                cartSnapshot.child("quantity").getRef().setValue(updateQuantity);
+                            }
+                        }
+                    });
+
+                    // Cập nhật ánh xạ giá tiền
+                    productPrices.put(check, Integer.parseInt(productsPrice) * productsQuantity);
+                    // Xử lý sự kiện checkbox
+                    check.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            int selectedCount = 0;
+                            int totalAmount = 0;
+
+                            for (Map.Entry<CheckBox, Integer> entry : productPrices.entrySet()) {
+                                CheckBox cb = entry.getKey();
+                                int price = entry.getValue();
+
+                                if (cb.isChecked()) {
+                                    selectedCount++;
+                                    totalAmount += price;
+                                }
+                            }
+
+                            txt_tongTien.setText(String.format("%sVNĐ", String.valueOf(totalAmount)));
+                        }
+                    });
+
+                    btnDathang.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            // Tạo một danh sách để lưu trữ sản phẩm được chọn
+                            List<ProductModel> selectedProducts = new ArrayList<>();
+
+                            // Tính tổng tiền
+                            int totalAmount = 0;
+
+                            for (Map.Entry<CheckBox, Integer> entry : productPrices.entrySet()) {
+                                CheckBox cb = entry.getKey();
+                                int price = entry.getValue();
+
+                                if (cb.isChecked()) {
+                                    // Thêm sản phẩm vào danh sách sản phẩm được chọn
+                                    selectedProducts.add(getProductFromCheckBox(cb));
+
+                                    // Cập nhật tổng tiền
+                                    totalAmount += price;
+                                }
+                            }
+
+                            // Tạo Intent để chuyển đến hoạt động phieuDatHangActivity
+                            Intent intent = new Intent(CartActivity.this, phieuDatHangActivity.class);
+
+                            // Đính kèm danh sách sản phẩm được chọn và tổng tiền vào Intent
+                            intent.putExtra("selectedProducts", (ArrayList<ProductModel>) selectedProducts);
+                            intent.putExtra("totalAmount", totalAmount);
+
+                            // Chuyển đến hoạt động phieuDatHangActivity
+                            startActivity(intent);
+                        }
+                    });
+
+
                 }
             }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(CartActivity.this, "Loi: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-    private void displayUserNameCart(){
-        String userId = mAuth.getCurrentUser().getUid();
-        DatabaseReference dt_user = FirebaseDatabase.getInstance().getReference("User");
-        dt_user.child(userId).addValueEventListener(new ValueEventListener() {
-            LinearLayout layout_usercart  =  findViewById(R.id.layout_usernamecart);
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String username = snapshot.child("username").getValue(String.class);
-                TextView userCart = new TextView(CartActivity.this);
-                userCart.setText(username + "'s cart");
-                userCart.setTextSize(30);
-                userCart.setTextColor(getResources().getColor(R.color.camdonau));
-
-                layout_usercart.addView(userCart);
-            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

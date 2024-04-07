@@ -1,5 +1,6 @@
 package com.example.foodorderapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -333,14 +334,11 @@ public class MainActivity extends AppCompatActivity {
 
                     // tao button add
                     ImageButton addButton = new ImageButton(MainActivity.this);
-                    addButton.setBackgroundResource(R.drawable.icon_add);
-
-
+                    addButton.setBackgroundResource(R.drawable.icon_cart);
                     int buttonWidthPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics());
                     int buttonHeightPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics());
                     LinearLayout.LayoutParams buttonLayoutParams = new LinearLayout.LayoutParams(buttonWidthPx, buttonHeightPx);
                     addButton.setLayoutParams(buttonLayoutParams);
-
                     LinearLayout.LayoutParams buttonLayoutParamsM = new LinearLayout.LayoutParams(buttonWidthPx, buttonHeightPx);
                     buttonLayoutParamsM.setMarginStart(370);
                     addButton.setLayoutParams(buttonLayoutParamsM);
@@ -554,31 +552,42 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     private void addToCart(final String productsID, final String productsImageUrl, final String productsName, final String productsPrice ) {
+
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle("Chọn số lượng");
-
         EditText quantityEditText = new EditText(MainActivity.this);
         quantityEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
         builder.setView(quantityEditText);
-
         builder.setPositiveButton("Thêm vào giỏ hàng", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String quantityString = quantityEditText.getText().toString();
+                String userID = mAuth.getCurrentUser().getUid();
                 if (!quantityString.isEmpty()) {
-                    try {
-                        int quantity = Integer.parseInt(quantityString);
-                        String userId = mAuth.getCurrentUser().getUid();
-                        DatabaseReference cartReference = FirebaseDatabase.getInstance().getReference("Cart");
-                        CartModel cart = new CartModel(productsName, productsPrice, quantity, productsImageUrl);
-                        cartReference.child(userId).child(productsID).setValue(cart);
-                        Toast.makeText(MainActivity.this, "Thêm vào giỏ hàng thành công!", Toast.LENGTH_SHORT).show();
-                    } catch (NumberFormatException e) {
-                        // Xử lý lỗi khi không thể chuyển đổi quantityString thành số nguyên
-                        Toast.makeText(MainActivity.this, "Số lượng không hợp lệ", Toast.LENGTH_SHORT).show();
-                    }
+                  DatabaseReference dt_cart = FirebaseDatabase.getInstance().getReference("Cart");
+                  dt_cart.child(userID).child(productsID).addListenerForSingleValueEvent(new ValueEventListener() {
+                      @Override
+                      public void onDataChange(@NonNull DataSnapshot snapshot) {
+                          if(snapshot.exists()){
+                              int oldQuantity = snapshot.child("quantity").getValue(Integer.class);
+                              int updateQuantity = oldQuantity + Integer.parseInt(quantityString);
+                              snapshot.child("quantity").getRef().setValue(updateQuantity);
+                              Toast.makeText(MainActivity.this, "Thêm vào giỏ hàng thành công!", Toast.LENGTH_SHORT).show();
+                          }
+                          else{
+                              CartModel new_cart = new CartModel(productsName, productsPrice, Integer.parseInt(quantityString),productsImageUrl);
+                              DatabaseReference data_newCart = FirebaseDatabase.getInstance().getReference("Cart");
+                              data_newCart.child(userID).child(productsID).setValue(new_cart);
+                              Toast.makeText(MainActivity.this, "Thêm vào giỏ hàng thành công!", Toast.LENGTH_SHORT).show();
+                          }
+                      }
+
+                      @Override
+                      public void onCancelled(@NonNull DatabaseError error) {
+                          Toast.makeText(MainActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                      }
+                  });
                 } else {
-                    // Xử lý lỗi khi quantityString rỗng
                     Toast.makeText(MainActivity.this, "Vui lòng nhập số lượng", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -588,10 +597,6 @@ public class MainActivity extends AppCompatActivity {
                 dialog.cancel();
             }
         });
-
         builder.show();
     }
-
-
-
 }

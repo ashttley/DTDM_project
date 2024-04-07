@@ -7,19 +7,43 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical">
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chat with us"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:textColor="@color/camdonau"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"/>
+        android:text="Order form"
+        android:textColor="@color/camdonau"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        tools:ignore="HardcodedText" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/layout_usernamecart"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/layout_productInCart"
+            android:orientation="vertical"
+            >
+
+        </LinearLayout>
+    </ScrollView>
+
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/layout_navbar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -90,28 +114,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Delivery"
-                    android:textColor="@color/black" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/layout_chat"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@drawable/icon_chat" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Chat"
                     android:textColor="@color/black" />
             </LinearLayout>
 
