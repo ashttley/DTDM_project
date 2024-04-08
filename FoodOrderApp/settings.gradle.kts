@@ -10,7 +10,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-//        maven{url 'https://maven.zohodl.com'}
+        maven {
+            url = uri("https://maven.zohodl.com")
+        }
     }
 }
 

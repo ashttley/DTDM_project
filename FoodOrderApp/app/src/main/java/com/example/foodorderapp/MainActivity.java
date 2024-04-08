@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+import com.zoho.salesiqembed.ZohoSalesIQ;
 
 public class MainActivity extends AppCompatActivity {
     private TextView hello_name;
@@ -34,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        ZohoSalesIQ.init(this.getApplication(),"lcP7eiKnDBYigBZ2doqIP0Yj3%2FB1xhb%2FujjltoC%2F6wjsygyfTP8Js1CURnoJy3vN","VXYedrQX8SnlbJmrcouAR0asbHNvGug1XohqYv84VA7ctZiRRP%2FPaDzA4Yu2ifTQvoFucCLzbok8xCYlypigqIueJvKDP3bOibeL2qmH0oHzXv1h38F4sZ7VMaQEImgP");
-//        ZohoSalesIQ.showLauncher(true);
+        ZohoSalesIQ.init(this.getApplication(),"lcP7eiKnDBYigBZ2doqIP0Yj3%2FB1xhb%2FujjltoC%2F6wjsygyfTP8Js1CURnoJy3vN","VXYedrQX8SnlbJmrcouAR0asbHNvGug1XohqYv84VA7ctZiRRP%2FPaDzA4Yu2ifTQvoFucCLzbok8xCYlypigqIueJvKDP3bOibeL2qmH0oHzXv1h38F4sZ7VMaQEImgP");
+        ZohoSalesIQ.showLauncher(true);
 
         hello_name = findViewById(R.id.txtHello);
         cart = findViewById(R.id.layout_cart);
