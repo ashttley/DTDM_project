@@ -7,92 +7,122 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Your cart"
-        android:textStyle="bold"
-        android:textColor="@color/camdonau"
-        android:textSize="25sp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal"
-        tools:ignore="HardcodedText" />
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/layout_usernamecart"/>
-
-    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:id="@+id/layout_infor"
+        >
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/layout_productInCart"
-            android:orientation="vertical"
-            >
+            android:orientation="horizontal"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Username"
+                android:textColor="@color/black"
+                android:textSize="17dp" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Username"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black"
+                android:id="@+id/edit_username"
+                android:textSize="17dp"/>
 
         </LinearLayout>
-    </ScrollView>
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|center_horizontal"
-        android:id="@+id/layout_barThanhToan">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Phone"
+                android:textSize="17dp"
+                android:textColor="@color/black"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:hint="Phone"
+                android:textColor="@color/black"
+                android:id="@+id/edit_phone"
+                android:textSize="17dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Password"
+                android:textSize="17dp"
+                android:textColor="@color/black"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:layout_marginLeft="13dp"
+                android:textColor="@color/black"
+                android:id="@+id/edit_pass"
+                android:textSize="17dp"/>
+
+        </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/layout_thanhtoan"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="Tổng thanh toán: "
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                tools:ignore="HardcodedText" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0 VND"
-                android:textStyle="bold"
-                android:textSize="17sp"
-                android:textColor="@color/camdonau"
-                android:id="@+id/txt_tongtien"
-                tools:ignore="HardcodedText" />
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                >
-                <Button
-                    android:id="@+id/btn_datHang"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:backgroundTint="@color/camdonau"
-                    android:text="Đặt hàng"
-                    android:textAllCaps="true"
-                    android:layout_marginRight="10dp"/>
-            </RelativeLayout>
         </LinearLayout>
-    </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/camdonau"
+                android:text="Save"
+                android:textSize="17dp"
+
+                />
+
+        </LinearLayout>
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/layout_navbar">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -167,6 +197,26 @@
             </LinearLayout>
 
 
+            <LinearLayout
+                android:id="@+id/layout_chat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_chat" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Chat"
+                    android:textColor="@color/black" />
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/layout_profile"
@@ -189,6 +239,9 @@
                     android:textColor="@color/black" />
             </LinearLayout>
         </LinearLayout>
+
+
+
     </RelativeLayout>
 
 

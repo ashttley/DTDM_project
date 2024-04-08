@@ -47,8 +47,7 @@ public class CartActivity extends AppCompatActivity {
         btnDathang = findViewById(R.id.btn_datHang);
 
         mAuth = FirebaseAuth.getInstance();
-        //hien thi gio hang cua user
-        displayUserNameCart();
+
         //hien thi san pham trong gio hang cua user
         displayProductsInCart();
 
@@ -84,21 +83,15 @@ public class CartActivity extends AppCompatActivity {
 
 
     private void displayProductsInCart(){
-        // item thanh toan
-        TextView txt_tongTien = findViewById(R.id.txt_tongtien);
-        int tongTien = 0;
+        TextView txt_tongtien  = findViewById(R.id.txt_tongtien);
         String userID = mAuth.getCurrentUser().getUid();
         DatabaseReference dt_cart = FirebaseDatabase.getInstance().getReference("Cart");
-        dt_cart.child(userID);
-        dt_cart.addValueEventListener(new ValueEventListener() {
+        dt_cart.child(userID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 LinearLayout layout_cart = findViewById(R.id.layout_productInCart);
                 layout_cart.removeAllViews();
-                // HashMap ánh xạ giữa CheckBox và giá tiền
                 HashMap<CheckBox, Integer> productPrices = new HashMap<>();
-//                // haspmap anh xa giua checkbox va
-//                HashMap<CheckBox, Integer> productPrices = new HashMap<>();
                 for (DataSnapshot cartSnapshot : snapshot.getChildren()) {
                     String productsName = cartSnapshot.child("name").getValue(String.class);
                     String productsImageUrl = cartSnapshot.child("image").getValue(String.class);
@@ -146,6 +139,7 @@ public class CartActivity extends AppCompatActivity {
                             LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                     inforParams.setMarginStart(20);
                     inforContainer.setLayoutParams(inforParams);
+
 
 
                     //push name
@@ -260,50 +254,45 @@ public class CartActivity extends AppCompatActivity {
                                     totalAmount += price;
                                 }
                             }
+                            txt_tongtien.setText(String.format("%sVNĐ", String.valueOf(totalAmount)));
 
-                            txt_tongTien.setText(String.format("%sVNĐ", String.valueOf(totalAmount)));
                         }
                     });
-
+                    // xử lý sự kiện đặt hàng
                     btnDathang.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            // Tạo một danh sách để lưu trữ sản phẩm được chọn
-                            List<ProductModel> selectedProducts = new ArrayList<>();
-
-                            // Tính tổng tiền
-                            int totalAmount = 0;
-
-                            for (Map.Entry<CheckBox, Integer> entry : productPrices.entrySet()) {
-                                CheckBox cb = entry.getKey();
-                                int price = entry.getValue();
-
-                                if (cb.isChecked()) {
-                                    // Thêm sản phẩm vào danh sách sản phẩm được chọn
-                                    selectedProducts.add(getProductFromCheckBox(cb));
-
-                                    // Cập nhật tổng tiền
-                                    totalAmount += price;
+                            // Hiển thị hộp thoại xác nhận đặt hàng
+                            AlertDialog.Builder builder = new AlertDialog.Builder(CartActivity.this);
+                            builder.setTitle("Xác nhận đặt hàng");
+                            builder.setMessage("Bạn có chắc chắn muốn đặt hàng với tổng số tiền là " + txt_tongtien.getText().toString());
+                            builder.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss(); // đóng hộp thoại
+                                    // xoa id san pham trong gio hang dong thoi giam so luong trong product
+                                    Toast.makeText(CartActivity.this, "Bạn đã đặt hàng thành công!", Toast.LENGTH_SHORT).show();
+                                    Intent i = new Intent(CartActivity.this, DeliveryActivity.class );
+                                    startActivity(i);
                                 }
-                            }
+                            });
 
-                            // Tạo Intent để chuyển đến hoạt động phieuDatHangActivity
-                            Intent intent = new Intent(CartActivity.this, phieuDatHangActivity.class);
+                            builder.setNegativeButton("Hủy bỏ", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
 
-                            // Đính kèm danh sách sản phẩm được chọn và tổng tiền vào Intent
-                            intent.putExtra("selectedProducts", (ArrayList<ProductModel>) selectedProducts);
-                            intent.putExtra("totalAmount", totalAmount);
-
-                            // Chuyển đến hoạt động phieuDatHangActivity
-                            startActivity(intent);
+                            AlertDialog alertDialog = builder.create();
+                            alertDialog.show();
                         }
                     });
+
 
 
                 }
             }
-
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(CartActivity.this, "Loi: " + error.getMessage(), Toast.LENGTH_SHORT).show();

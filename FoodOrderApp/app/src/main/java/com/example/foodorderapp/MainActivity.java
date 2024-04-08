@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         hello_name = findViewById(R.id.txtHello);
         cart = findViewById(R.id.layout_cart);
         delivery = findViewById(R.id.layout_delivery);
-        chat = findViewById(R.id.layout_chat);
         profile = findViewById(R.id.layout_profile);
         home = findViewById(R.id.layout_home);
 
@@ -70,13 +69,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //chuyen huong den chat
-        chat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ChatActivity.class);
-                startActivity(intent);
-            }
-        });
+
         //chuyen huong den profile
         profile.setOnClickListener(new View.OnClickListener() {
             @Override

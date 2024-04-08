@@ -13,18 +13,11 @@ public class DeliveryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery);
-        chat = findViewById(R.id.layout_chat);
         cart = findViewById(R.id.layout_cart);
         profile = findViewById(R.id.layout_profile);
         home = findViewById(R.id.layout_home);
 
-        chat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DeliveryActivity.this, ChatActivity.class);
-                startActivity(intent);
-            }
-        });
+
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
