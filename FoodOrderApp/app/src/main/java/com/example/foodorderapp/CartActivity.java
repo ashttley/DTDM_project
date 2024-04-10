@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
@@ -93,6 +94,7 @@ public class CartActivity extends AppCompatActivity {
                 layout_cart.removeAllViews();
                 HashMap<CheckBox, Integer> productPrices = new HashMap<>();
                 for (DataSnapshot cartSnapshot : snapshot.getChildren()) {
+
                     String productsName = cartSnapshot.child("name").getValue(String.class);
                     String productsImageUrl = cartSnapshot.child("image").getValue(String.class);
                     String productsPrice = cartSnapshot.child("price").getValue(String.class);
@@ -139,7 +141,6 @@ public class CartActivity extends AppCompatActivity {
                             LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                     inforParams.setMarginStart(20);
                     inforContainer.setLayoutParams(inforParams);
-
 
 
                     //push name
@@ -248,32 +249,45 @@ public class CartActivity extends AppCompatActivity {
                             for (Map.Entry<CheckBox, Integer> entry : productPrices.entrySet()) {
                                 CheckBox cb = entry.getKey();
                                 int price = entry.getValue();
-
-                                if (cb.isChecked()) {
+                                if(cb.isChecked()){
                                     selectedCount++;
-                                    totalAmount += price;
+                                    totalAmount+=price;
                                 }
-                            }
-                            txt_tongtien.setText(String.format("%sVNĐ", String.valueOf(totalAmount)));
 
+
+                            }
+
+                            txt_tongtien.setText(String.format("%sVNĐ", String.valueOf(totalAmount)));
                         }
                     });
                     // xử lý sự kiện đặt hàng
                     btnDathang.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            int selectedCount = 0;
+                            int totalAmount = 0;
+
+                            for (Map.Entry<CheckBox, Integer> entry : productPrices.entrySet()) {
+                                CheckBox cb = entry.getKey();
+                                int price = entry.getValue();
+
+                                if (cb.isChecked()) {
+                                    selectedCount++;
+                                    totalAmount += price;
+                                }
+                            }
+
                             // Hiển thị hộp thoại xác nhận đặt hàng
                             AlertDialog.Builder builder = new AlertDialog.Builder(CartActivity.this);
                             builder.setTitle("Xác nhận đặt hàng");
-                            builder.setMessage("Bạn có chắc chắn muốn đặt hàng với tổng số tiền là " + txt_tongtien.getText().toString());
+                            builder.setMessage("Bạn có chắc chắn muốn đặt hàng với tổng số tiền là " + totalAmount +  "VNĐ không?");
+
                             builder.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss(); // đóng hộp thoại
-                                    // xoa id san pham trong gio hang dong thoi giam so luong trong product
-                                    Toast.makeText(CartActivity.this, "Bạn đã đặt hàng thành công!", Toast.LENGTH_SHORT).show();
-                                    Intent i = new Intent(CartActivity.this, DeliveryActivity.class );
-                                    startActivity(i);
+                                    // xoa san pham trong gio hang
+                                    // giam so luong trong products => can biet duoc id cua san pham duoc chon
+                                    dialog.dismiss();
                                 }
                             });
 
@@ -289,10 +303,9 @@ public class CartActivity extends AppCompatActivity {
                         }
                     });
 
-
-
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(CartActivity.this, "Loi: " + error.getMessage(), Toast.LENGTH_SHORT).show();

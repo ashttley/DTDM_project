@@ -53,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         dt_User = FirebaseDatabase.getInstance().getReference("User");
         mAuth = FirebaseAuth.getInstance();
 
+        txtPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         // Thiết lập ẩn/mở password khi toggle được chọn
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

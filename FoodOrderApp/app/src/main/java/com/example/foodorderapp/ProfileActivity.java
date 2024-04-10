@@ -96,6 +96,10 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 auth.signOut();
                 Toast.makeText(ProfileActivity.this, "Đăng xuất thành công!", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(ProfileActivity.this, WelcomeActivity.class);
+                startActivity(i);
+                finish();
+
             }
         });
         btnedit.setOnClickListener(new View.OnClickListener() {

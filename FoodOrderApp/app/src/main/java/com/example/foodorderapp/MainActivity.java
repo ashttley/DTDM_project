@@ -121,7 +121,9 @@ public class MainActivity extends AppCompatActivity {
                     String productsName = productsSnapshot.child("name").getValue(String.class);
                     String productsDesciption = productsSnapshot.child("description").getValue(String.class);
                     String productsPrice = productsSnapshot.child("price").getValue(String.class);
+                    String productsQuantity = productsSnapshot.child("quantity").getValue(String.class);
 
+                    assert productsName != null;
                     if (productsName.contains(txtSearch)) {
                         flag = true;
                         // Tạo các thành phần bao gồm hình ảnh và thông tin sản phẩm
@@ -181,6 +183,19 @@ public class MainActivity extends AppCompatActivity {
                         productDescriptionText.setLayoutParams(descriptionTextParams);
 
                         productInfoLayout.addView(productDescriptionText);
+
+                        // Số lượng sản phẩm
+                        TextView productQuantityText = new TextView(MainActivity.this);
+                        productQuantityText.setText("Số lượng: " + productsQuantity);
+                        productQuantityText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
+                        productQuantityText.setTextColor(getResources().getColor(R.color.black));
+
+                        LinearLayout.LayoutParams priceQuatityParams = new LinearLayout.LayoutParams(
+                                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                        priceQuatityParams.setMarginStart(20);
+                        productQuantityText.setLayoutParams(priceQuatityParams);
+
+                        productInfoLayout.addView(productQuantityText);
 
                         // Giá sản phẩm
                         TextView productPriceText = new TextView(MainActivity.this);
@@ -253,6 +268,7 @@ public class MainActivity extends AppCompatActivity {
                     final String productsName = productsSnapshot.child("name").getValue(String.class);
                      String productsDesciption = productsSnapshot.child("description").getValue(String.class);
                     final String productsPrice = productsSnapshot.child("price").getValue(String.class);
+                    String productsQuantity = productsSnapshot.child("quantity").getValue(String.class);
 
                     // Tạo các thành phần bao anh + infor san pham
                     LinearLayout productContainer = new LinearLayout(MainActivity.this);
@@ -311,6 +327,19 @@ public class MainActivity extends AppCompatActivity {
                     productDescriptionText.setLayoutParams(descriptionTextParams);
 
                      productInfoLayout.addView(productDescriptionText);
+
+                    // Số lượng sản phẩm
+                    TextView productQuantityText = new TextView(MainActivity.this);
+                    productQuantityText.setText("Số lượng: " + productsQuantity);
+                    productQuantityText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
+                    productQuantityText.setTextColor(getResources().getColor(R.color.black));
+
+                    LinearLayout.LayoutParams priceQuatityParams = new LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                    priceQuatityParams.setMarginStart(20);
+                    productQuantityText.setLayoutParams(priceQuatityParams);
+
+                    productInfoLayout.addView(productQuantityText);
 
                     // gia san pham
                     TextView productPriceText = new TextView(MainActivity.this);
@@ -412,6 +441,7 @@ public class MainActivity extends AppCompatActivity {
                     String productsDesciption = productsSnapshot.child("description").getValue(String.class);
                     String productsPrice = productsSnapshot.child("price").getValue(String.class);
                     String productsCategoriesID = productsSnapshot.child("categories").getValue(String.class);
+                    String productsQuantity = productsSnapshot.child("quantity").getValue(String.class);
 
                     if(productsCategoriesID.equals(categoryID)){
                         // Tạo các thành phần bao anh + infor san pham
@@ -471,6 +501,19 @@ public class MainActivity extends AppCompatActivity {
                         productDescriptionText.setLayoutParams(descriptionTextParams);
 
                         productInfoLayout.addView(productDescriptionText);
+
+                        // Số lượng sản phẩm
+                        TextView productQuantityText = new TextView(MainActivity.this);
+                        productQuantityText.setText("Số lượng: " + productsQuantity);
+                        productQuantityText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
+                        productQuantityText.setTextColor(getResources().getColor(R.color.black));
+
+                        LinearLayout.LayoutParams priceQuatityParams = new LinearLayout.LayoutParams(
+                                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                        priceQuatityParams.setMarginStart(20);
+                        productQuantityText.setLayoutParams(priceQuatityParams);
+
+                        productInfoLayout.addView(productQuantityText);
 
                         // gia san pham
                         TextView productPriceText = new TextView(MainActivity.this);
