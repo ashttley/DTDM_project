@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 LinearLayout productsLayout = findViewById(R.id.list_product);
                 productsLayout.removeAllViews();
-                Boolean flag = false;
+                Boolean flag = true;
                 for (DataSnapshot productsSnapshot : dataSnapshot.getChildren()) {
                     final String productsID = productsSnapshot.getKey();
                     String productsImageUrl = productsSnapshot.child("image").getValue(String.class);
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
                     assert productsName != null;
                     if (productsName.contains(txtSearch)) {
-                        flag = true;
+//                        flag = true;
                         // Tạo các thành phần bao gồm hình ảnh và thông tin sản phẩm
                         LinearLayout productContainer = new LinearLayout(MainActivity.this);
                         productContainer.setOrientation(LinearLayout.HORIZONTAL);
@@ -153,8 +153,8 @@ public class MainActivity extends AppCompatActivity {
                         // Tạo LinearLayout chứa phần thông tin
                         LinearLayout productInfoLayout = new LinearLayout(MainActivity.this);
                         productInfoLayout.setOrientation(LinearLayout.VERTICAL);
-                        int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 470, getResources().getDisplayMetrics());
-                        int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 110, getResources().getDisplayMetrics());
+                        int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 500, getResources().getDisplayMetrics());
+                        int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 150, getResources().getDisplayMetrics());
                         LinearLayout.LayoutParams layoutParamsInfo = new LinearLayout.LayoutParams(width, height);
                         productInfoLayout.setLayoutParams(layoutParamsInfo);
 
@@ -235,6 +235,7 @@ public class MainActivity extends AppCompatActivity {
                         // Thêm productInfoLayout vào productContainer
                         productContainer.addView(productInfoLayout);
                     }
+                    flag = false;
 
                 }
                 if(flag == false){
@@ -297,8 +298,8 @@ public class MainActivity extends AppCompatActivity {
                     // Tạo linearlayout bao phần chữ
                     LinearLayout productInfoLayout = new LinearLayout(MainActivity.this);
                     productInfoLayout.setOrientation(LinearLayout.VERTICAL);
-                    int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 470, getResources().getDisplayMetrics());
-                    int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 110, getResources().getDisplayMetrics());
+                    int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 500, getResources().getDisplayMetrics());
+                    int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 150, getResources().getDisplayMetrics());
                     LinearLayout.LayoutParams layoutParamsInfor = new LinearLayout.LayoutParams(width, height);
                     productInfoLayout.setLayoutParams(layoutParamsInfor);
 
@@ -362,7 +363,7 @@ public class MainActivity extends AppCompatActivity {
                     LinearLayout.LayoutParams buttonLayoutParams = new LinearLayout.LayoutParams(buttonWidthPx, buttonHeightPx);
                     addButton.setLayoutParams(buttonLayoutParams);
                     LinearLayout.LayoutParams buttonLayoutParamsM = new LinearLayout.LayoutParams(buttonWidthPx, buttonHeightPx);
-                    buttonLayoutParamsM.setMarginStart(370);
+                    buttonLayoutParamsM.setMarginStart(400);
                     addButton.setLayoutParams(buttonLayoutParamsM);
 
                     // su ly xu kien khi nhan vao addbutton
@@ -471,8 +472,8 @@ public class MainActivity extends AppCompatActivity {
                         // Tạo linearlayout bao phần chữ
                         LinearLayout productInfoLayout = new LinearLayout(MainActivity.this);
                         productInfoLayout.setOrientation(LinearLayout.VERTICAL);
-                        int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 470, getResources().getDisplayMetrics());
-                        int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 110, getResources().getDisplayMetrics());
+                        int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 500, getResources().getDisplayMetrics());
+                        int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 150, getResources().getDisplayMetrics());
                         LinearLayout.LayoutParams layoutParamsInfor = new LinearLayout.LayoutParams(width, height);
                         productInfoLayout.setLayoutParams(layoutParamsInfor);
 
@@ -530,7 +531,7 @@ public class MainActivity extends AppCompatActivity {
 
                         // tao button add
                         ImageButton addButton = new ImageButton(MainActivity.this);
-                        addButton.setBackgroundResource(R.drawable.icon_add);
+                        addButton.setBackgroundResource(R.drawable.icon_cart);
 
 
                         int buttonWidthPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics());

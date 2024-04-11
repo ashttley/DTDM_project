@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,7 +28,7 @@ public class EditActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private DatabaseReference dtuser;
 
-    private Button btnsave;
+    private Button btnsave,btnsend;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,10 +37,14 @@ public class EditActivity extends AppCompatActivity {
         edtuser = findViewById(R.id.edit_username);
         edtphone = findViewById(R.id.edit_phone);
         edtpass = findViewById(R.id.edit_pass);
+        btnsend = findViewById(R.id.btn_send);
 
 
         btnsave= findViewById(R.id.btn_save);
         auth = FirebaseAuth.getInstance();
+
+        Intent intent= getIntent();
+        String email= intent.getStringExtra("email");
 
         display();
 
@@ -48,6 +55,26 @@ public class EditActivity extends AppCompatActivity {
                 saveDataAndReturn();
             }
         });
+        btnsend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendPasswordResetEmail(email);
+
+            }
+        });
+    }
+    private void sendPasswordResetEmail(String email) {
+        auth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(EditActivity.this, "Một email đã được gửi đến để đặt lại mật khẩu!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(EditActivity.this, "Lỗi: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
     private void display() {
         String userID = auth.getCurrentUser().getUid();

@@ -178,19 +178,12 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
-//    private void signout() {
-//        Intent mainActivity = new Intent(ProfileActivity.this, LoginActivity.class);
-//        mainActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//        startActivity(mainActivity);
-//        finish();
-//    }
 
     private void edit() {
         Intent editactivity= new Intent(ProfileActivity.this,EditActivity.class);
+        editactivity.putExtra("email",edtemail.getText().toString());
         startActivity(editactivity);
         finish();
-
-
     }
     private void delete() {
         new AlertDialog.Builder(this)
